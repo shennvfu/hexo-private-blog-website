@@ -1,5 +1,5 @@
 ---
-  title: Payment
+  title: Pay
   date: 2020-06-15 22:27:03
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
@@ -18,4 +18,5 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
 # ten Payment:
 ![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftcrgj7rzj32ai2lxdrm.jpg)
-![qq3.png](http://ww1.sinaimg.cn/large/006DnxC4gy1gftcrnktyhj320830c13y.jpg)
+![payment3.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftg2e30e1j30fb0f6wi2.jpg)
+
