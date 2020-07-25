@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>C_Language_Basics_01 - 黑马程序员</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="黑马程序员" type="application/atom+xml"> 
+    <link rel="icon" href="/hexo-private-blog-website/img/logo.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/hexo-private-blog-website/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">黑马程序员</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://shennvfu.github.io/hexo-private-blog-website"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">C_Language_Basics_01</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">C_Language_Basics_01</h1>
+        <div class="stuff">
+            <span>七月 25, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h1 id="一、嵌入式技术背景"><a href="#一、嵌入式技术背景" class="headerlink" title="一、嵌入式技术背景"></a>一、嵌入式技术背景</h1><p>1.1 嵌入式只专门生产功能专一的电子产品。（电子产品：所有通电的）</p>
+<p>  1.2 嵌入式开发方向：</p>
+<pre><code>涉及操作系统开发的：
+              windows: 电脑，微软产品（闭源）
+              Linux:ubuntu centos 、红帽、中标麒麟...(免费)
+                    电脑，手机（安卓：Linux内核、苹果：UNIX）、智能终端：医疗仪器（Qt:C++）、车载系统、银行挂号、智能农业，语音机器人,
+                    航拍无人机（地形地貌---系统移植）...
+涉及微型处理器开发的（MCU:单片机、STM32（ucos系统）、zigbee）：收音机、冰箱、洗衣机、空调、注射仪...
+
+
+职位：
+  Linux命令（SHELL：脚本命令）：Linux服务器维护、系统管理
+  C语言：C语言工程师（数据结构）
+  系统编程：进程、线程（线程同步，进程间通信）
+            智能终端，做特定的系统（一般都是下载一个原生态的系统，自己裁剪）注：.ko文件（编译出来的，安装） + app文件（应用程序）
+            驱动开发（再基于操纵系统上，所有硬件都需要驱动）：编写驱动（USB驱动）
+  应用层：Qt ：游戏，软件程序
+  数据库：SQL
+
+  硬件:画板、焊接...</code></pre><h2 id="现阶段的知识点"><a href="#现阶段的知识点" class="headerlink" title="现阶段的知识点"></a>现阶段的知识点</h2><p>Linux基本操作<br>    C语言：<br>      C语言的本质<br>        数据类型<br>        运算符<br>        控制流语句（9个）<br>        数组<br>        函数（一:声明、定义、封装、调用）<br>        指针（一级指针，指针和数组和函数的关系）<br>        结构体、枚举、联合体<br>        函数（二、回调函数、递归函数、内联函数、变参函数：printf scanf）<br>        特殊关键字<br>        内存分布（程序是在哪里运行的？是怎么会运行的？ ）<br>                在运行内存里面运行的 CPU –&gt; 系统  –&gt; 程序</p>
+<pre><code>.c里面int a；4个字节</code></pre><h3 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h3><p>① root用户输入passwd指令可以直接修改密码(其它用户也可以直接修改);<br>而普通用户输入passwd指令只可以修改它自己的密码<br>②嵌入式方向职位：<br>QT工程师<br>嵌入式物联网工程师<br>嵌入式驱动工程师<br>嵌入式AI开发工程师<br>③根目录(/)下的目录结构、目录的分类<br>bin: binary 该目录中存储的都是些二进制文件，文件都是可以被运行的 可执行程序<br>dev：在linux下一切皆文件  device 该目录中主要存放的是外接设备，例如U盘或者新添加的硬盘等。在其中的外接设备是不能直接被使用的，它需要挂载才能使用(类似于Windows下的分配盘符)<br>etc：该目录主要存储的是系统的一些配置文件<br>home：表示除了root用户以外其它用户的家目录，类似于Windows下的User/用户目录<br>proc：process，表示进程，该目录中存储的是linux运行时候的进程<br>root：该目录是root用户自己的家目录<br>sbin：该目录是存储一些可以被执行的二进制文件，但是必须得有超级管理员的权限的用户才能够执行<br>tmp：存放临时文件，当系统运行时候产生的临时文件会存储在这个目录<br>usr：该目录是存放用户自己安装的应用程序，类似于Windows下的program files<br>var：该目录存放的是程序/系统的日志文件的目录<br>mnt：该目录存放的是 当外接设备需要挂载的时候，就需要挂载到mnt目录下<br>lib：该目录存放的是linux运行的时候需要加载的一些动态库(类似于Windows下的dll文件)</p>
+<p>个人观点：开源并不意味着免费。<br>以上有些是参考的资料，有些是个人观点。</p>
+<h4 id="alipay-Payment"><a href="#alipay-Payment" class="headerlink" title="alipay Payment:"></a>alipay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfn69zcaj30fb0fhjus.jpg" alt="alipay2.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfnd2mwgj30fb0f3juw.jpg" alt="alipay3.jpg"></p>
+<h4 id="wechat-Payment"><a href="#wechat-Payment" class="headerlink" title="wechat Payment:"></a>wechat Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo0b23rj30fb0f0tbz.jpg" alt="wechat1.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo7ojvvj30fb0eujul.jpg" alt="wechat01.jpg"></p>
+<h4 id="tenpay-Payment"><a href="#tenpay-Payment" class="headerlink" title="tenpay Payment:"></a>tenpay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftg6n3n65j30bh0be77h.jpg" alt="tenpay4.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfsqq26qj30bh0bdgom.jpg" alt="tenpay2.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftg9w5ytlj30bh0bhjuk.jpg" alt="tenpay5.jpg"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/25727660.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/1436910205.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='http://link.hhtjim.com/163/1439111141.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='http://link.hhtjim.com/163/1442842748.mp3'></li>
+                        
+                    
+                        
+                            <li title='4' data-url='http://link.hhtjim.com/163/1422992414.mp3'></li>
+                        
+                    
+                        
+                            <li title='5' data-url='http://link.hhtjim.com/163/1434057772.mp3'></li>
+                        
+                    
+                        
+                            <li title='6' data-url='http://link.hhtjim.com/163/1429908253.mp3'></li>
+                        
+                    
+                        
+                            <li title='7' data-url='http://link.hhtjim.com/163/1432428744.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/hexo-private-blog-website/js/plugin.js"></script>
+<script src="/hexo-private-blog-website/js/typed.js"></script>
+<script src="/hexo-private-blog-website/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/hexo-private-blog-website/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/hexo-private-blog-website/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/hexo-private-blog-website/photoswipe/photoswipe.min.js"></script>
+<script src="/hexo-private-blog-website/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

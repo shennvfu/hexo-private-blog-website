@@ -1,0 +1,881 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>C_Language_Basics_03 - 黑马程序员</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="黑马程序员" type="application/atom+xml"> 
+    <link rel="icon" href="/hexo-private-blog-website/img/logo.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/hexo-private-blog-website/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">黑马程序员</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://shennvfu.github.io/hexo-private-blog-website"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">C_Language_Basics_03</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">C_Language_Basics_03</h1>
+        <div class="stuff">
+            <span>七月 26, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h1 id="C语言基础"><a href="#C语言基础" class="headerlink" title="C语言基础"></a>C语言基础</h1><p>  1.1 刷新输入输出缓存区的API<br>      fflush:<br>          头文件：#include &lt;stdio.h&gt;<br>          原型：<br>          int fflush(FILE *stream);</p>
+<pre><code>      int:
+          返回值0成功
+      stream：
+            文件流指针，存指定的文件指针就可刷新对应的缓存区
+
+
+    #include &lt;stdio.h&gt;
+
+
+    int main()
+    {
+      //定义一个字符变量
+      char data;
+      while(1)
+      {
+          printf(&quot;请输入一个字符&quot;);
+          scanf(&quot;%c&quot;,&amp;data);
+          while(getchar()!= &apos;\n&apos;);//清除缓存区
+
+          if(data&gt;=&apos;A&apos; &amp;&amp; data&lt;=&apos;Z&apos;) //判断是不是大写的
+          {
+              data += 32;
+              printf(&quot;输入对应的字母的小写为：%c\n&quot;,data);
+          }
+          else if(data&gt;=&apos;a&apos; &amp;&amp; data&lt;=&apos;z&apos;)
+          {
+            data -= 32;
+            printf(&quot;输入对应的字母的大写为：%c\n&quot;,data);
+          }
+          else
+          {
+            printf(&quot;输入的数据不符合，在重新输入！\n&quot;);
+            continue;//结束本次循环，进入下一次循环，一定要和循环结构搭配
+       }
+      }
+
+      return 0;
+    }
+
+
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main()
+{
+      int n=0;
+
+      while (1)
+  {
+    sleep(1);
+    printf(&quot;hello world!&quot;);
+    fflush(stdout);//刷新缓存区
+  }
+
+
+  return 0;
+}
+
+
+
+1.2 设置输入输出缓存区的大小
+
+  1）setbuf
+
+  头文件：#include &lt;stdio.h&gt;
+  原型：void setbuf(FILE *stream, char *buf);
+
+  stream：
+        文件流指针，存指定的文件指针就可设置对应的缓存区
+
+  buf：自己自定义的缓存区的首地址，根据系统（C语言标准），缓存区的大小不能小于BUFZIS(宏定义)  8192字节
+
+
+  例子：自己定义一个缓存区，大小位8192，把helloworld输出到里面打印
+
+
+
+  2)
+  int setvbuf(FILE *stream, char *buf, int mode, size_t size);
+
+
+  返回值：
+
+  形参一：
+      stream：文件流指针，存指定的文件指针就可设置对应的缓存区
+      buf：自己自定义的缓存区的首地址，如果设置为NULL，系统自己申请缓存区
+      mode：
+          缓存机制：
+
+                行缓存：printf scanf...  （_IOLBF line buffered）
+                      遇到/n符，才会对缓存区里面的数据进行输入输出操作。
+
+                无缓存：（  _IONBF unbuffered）标准出错perror、文件IO
+                      无条件的之间对数据进行输入输出操作。
+
+                全缓存：（_IOFBF fully buffered）
+
+                    等到缓存区满，才对缓存区里面的数据进行输入输出操作
+
+
+3)查找系统中BUFSIZ的大小
+    第一步：
+          从stdio.h里面找：
+                gedit /usr/include/stdio.h
+
+              找到：# define BUFSIZ         _IO_BUFSIZ
+                    #define M                   10
+
+    第二步：从#include &lt;libio.h&gt;里面找_IO_BUFSIZ
+          libio.h：在_IO_BUFSIZ在宏定义的上面
+          gedit /usr/include/libio.h
+          #define _IO_BUFSIZ _G_BUFSIZ
+
+    第三步：
+        从#include &lt;_G_config.h&gt;里面找_G_BUFSIZ
+        gedit /usr/include/_G_config.h
+          #define _G_BUFSIZ 8192
+
+
+
+      例子：
+          1使用setvbuf设置标准输出缓存区为行缓存，大小为8192
+
+
+          #include &lt;stdio.h&gt;
+          #include &lt;unistd.h&gt;
+
+          int main()
+          {
+            char buf[BUFSIZ];//定义一个数组，用来做标准输出的缓存区，大小为8192字节
+            setbuf(stdout,buf); // buf 自己自定义一个缓存区的首地址
+
+
+            while(1)
+            {
+              sleep(1);
+              printf(&quot;hello wrld&quot;);
+            }
+
+
+            return 0;
+          }
+
+          #include &lt;stdio.h&gt;
+          #include &lt;unistd.h&gt;
+
+
+          int main()
+          {
+            char buf[BUFSIZ];
+
+            setvbuf(stdout,buf,_IOLBF,50);
+
+            fflush(stdout);
+            while(1)
+            {
+              sleep(1);
+              printf(&quot;hello world&quot;);
+            }
+
+            return 0;
+          }</code></pre><p>二、</p>
+<p>  数据类型：<br>        1：类型与变量使用的概念：</p>
+<pre><code>  以整形类型为例子：
+  第一种：
+        先定义变量   int data;
+        给变量赋值   data =1120;
+        使用变量     printf(&quot;%d\n&quot;,data);
+  第二种：
+        初始化变量（  先定义变量，给变量赋值）    int a = 1020;
+        使用变量                                printf(&quot;%d\n&quot;,data);
+  注意：定义变量的时候，最要要有给变量赋值初始值的习惯。
+
+2：
+  数据类型转换：
+
+    自动转换（隐式转换）：
+          1）低类型 --&gt; 高类型
+
+          char  ---&gt;  short  ---&gt;int ---&gt;long ---&gt;folat ---&gt;double
+          int a = 10;
+          printf(&quot;%f\n&quot;,a);
+
+          2）进行混合运算时（+，-，）
+
+          int a = 11;
+          float b = 10.1;
+          printf(&quot;%f\n&quot;,a+b);
+
+          3）进行赋值运算时
+
+            等号的右边的数据自动转成等于号左边的类型
+
+            int a = 10;
+            float b = a;
+            printf(&quot;%f\n&quot;,b);
+
+          4）
+              函数传参的时候，实参的类型会自动转成形参的类型，（会报警高）
+              函数返回返回值的时候，返回值的类型会自动转成要求的返回值的类型，（会报警高）
+
+      强制转换：
+
+        高精度--&gt; 低精度（数据会丢失）
+
+        int a = 10;
+        printf(&quot;%f\n&quot;,(flaot)a);  //为了避免报警告，吧a的类型转成float的类型</code></pre><p>======================================================================================================<br>一、运算符</p>
+<p>  注：运算符的优先级（找一下对应图片）</p>
+<p>  1.1 算数运算符   + - * / % ++ –</p>
+<pre><code>例子：
+
+    1:键盘输入一个数（不是个位数），把这个数的每一位单独打印出来 189
+      9 8 1
+
+    2:
+      补充：
+          字符型数据有对应的ascii表  （中文有中文编码：
+                                                        windows:GB2312   一个中文2个字节
+                                                        Linux ： utf-8   一个中文3个字节
+
+                                     英文有英文编码   编码是用来设置存放对应的数据的格式大小）
+
+
+        键盘输入一个字母，大写变小写，小写变大写。</code></pre><p>  1.2 赋值运算符 （双目）  =  %= += -= /=</p>
+<pre><code>例子：
+          输入一个数，计算这个数+到10的总和。</code></pre><p>  1.3 关系运算符  == != &gt; &lt; &gt;= &lt;=</p>
+<p>  1.4 逻辑运算符 （真和假）</p>
+<pre><code>条件判断1  &amp;&amp;   条件判断2
+
+if(1 &amp;&amp; 1)
+{
+  printf(&quot;打印hello\n&quot;);
+}
+if(100)
+{
+  printf(&quot;打印hello\n&quot;);
+}
+
+int a = 1;
+if(!a)
+{
+  printf(&quot;把helloworld\n&quot;);
+}
+
+条件判断1 ||  条件判断2
+if(1 || 0) 真
+if(0 || 0) 假
+if(printf(&quot;hello&quot;) || printf(&quot;world&quot;)); //判断的是函数的返回值
+
+  !:逻辑非 （取反）</code></pre><p>  1.5 位运算符 &lt;&lt;  &gt;&gt;  ^  ~ &amp; |</p>
+<pre><code>int 4;
+二进制：100 &lt;&lt; 2   ----》  10000   //左移是扩大2的n次方倍
+       100 &gt;&gt; 2   ----&gt;   001      //右移是缩小2的n次方倍
+
+异或运算符^:
+    int a = 8;   1000
+    int b = 3;   0011
+    int c = b^a; 1011 ---&gt; 11
+
+~:二进制补码运算符
+
+  int a = 7;
+  printf(&quot;%d\n&quot;,(~a));
+
+  0.... 0111
+  1.... 1000  -8
+
+  ^=   a^=b;  ---&gt;  a = a^b;
+  ~=
+  &amp;=
+  |=</code></pre><p>  1.6 杂项运算符</p>
+<pre><code>sizeof、*、&amp;、 ？  ：（三目运算符）
+
+sizeof()
+关于系统版本：
+
+      12.04： int  printf(&quot;%d&quot;);
+      16.06、18.04： long unsigned int   printf(&quot;%ld\n&quot;)
+
+查看编译器gcc :gcc -v
+
+*:解引用  （指针变量）  地址是连续存储的 每个连续的地址之间相差1
+
+&amp;：当你./test运行程序时,代码里面的所有变量以及代码段都会加载到系统的运行内存里面。
+
+
+条件语句？执行1  ：执行2   （条件真执行1   条件假执行2）
+
+int a = 2;
+int b = 3;
+
+int d = a&gt;b?a:b; //d等于3
+a&gt;b?printf(&quot;a&gt;b&quot;):printf(&quot;a&lt;b&quot;);
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int num;
+  int new_data;//存放取出来的单个数据
+  printf(&quot;请输入一个数字：&quot;);
+  scanf(&quot;%d&quot;,&amp;num);
+
+  //拆分
+  //判断键盘输入的数是否是个位数
+
+  //198
+  while(1)
+  {
+    if(num / 10 != 0)
+    {
+        new_data = num%10;
+        num /= 10;
+        printf(&quot;%d\n&quot;,new_data);
+    }
+    else
+    {
+      printf(&quot;%d\n&quot;,num);
+      break;
+    }
+
+  }
+
+
+//字符和整形数据互换
+
+  int a = 65;
+  char b = &apos;R&apos;;
+  printf(&quot;%c\n&quot;,a);
+  printf(&quot;%d\n&quot;,b);  //
+
+  return 0;
+}
+
+
+/*数据类型自动转换 ---  低--&gt;高*/
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  /*int a = 10;
+  printf(&quot;%f\n&quot;,a);
+*/
+
+/*混合运算的自动转换*/
+  int a = 11;
+  float b = 10.1;
+  printf(&quot;%f\n&quot;,a+b);
+  return 0;
+}
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  int a = 10;
+  float b = (float)a;
+  printf(&quot;%f\n&quot;,(float)a);  //为了避免报警告，把a的类型转成float的类型
+  return 0;
+}
+
+
+/*赋值运算符 +=*/
+
+#include &lt;stdio.h&gt;
+#define M 10
+
+int main()
+{
+
+  int data;
+  printf(&quot;请输入一个数：&quot;);
+  scanf(&quot;%d&quot;,&amp;data);
+  int sum=data;
+
+  if(data&lt;10)
+  {
+      for(;data&lt;M ;data++)
+      {
+        //循环要执行的语句
+        sum += (data+1);//sun = sum+(data+1)
+      }
+      printf(&quot;这个叠加到10的总和是%d\n&quot;,sum);
+      /*
+      for(1;2;3)
+      {
+        4
+      }
+      第一次循环 1 2(成立) 4 3
+      第二次循环   2（成立）4 3
+      */
+  }
+  else
+  {
+    printf(&quot;输入有误！退出程序！\n&quot;);
+  }
+
+
+  return 0;
+}
+
+#include &lt;stdio.h&gt;
+int main()
+{
+  /*
+  int a= 4;
+  int b = a&lt;&lt;2;
+  int c = a&gt;&gt;2;
+  printf(&quot;%d-----%d\n&quot;,b,c);
+  */
+
+/*
+  int a = 8;   //1000
+  int b = 3;   //0011
+  int c = b^a; //1011 ---&gt; 11
+
+  printf(&quot;%d\n&quot;,c);
+  */
+
+  int a = 7;
+  printf(&quot;%d\n&quot;,(~a));
+
+
+
+  return 0;
+}</code></pre><p>二、控制流语句</p>
+<p>  九个：<br>      if</p>
+<pre><code>for
+
+while()
+
+do
+{
+
+}while(1) //至少会执行一次
+
+例子：写一份do whille的示例代码
+
+switch(数)
+{
+  case 1 :执行语句
+  case 2 :
+  。。。。
+  default :
+
+}
+
+break:一定要和循环体结合在一起，退出当前的循环体
+
+  while(1)
+  {
+    for(; ; )
+    {
+      break;  //至跳出for
+    }
+    break;
+  }
+
+continue:取消本次循环，进入下一次循环
+
+while(1)
+{
+  continue;
+  printf(&quot;hello world!\n&quot;);
+}
+
+return  :无条件退出当前的函数
+
+int main()
+{
+
+  return 0;
+  printf(&quot;hello world!\n&quot;);
+}
+
+goto:
+    要有条件的执行goto ()
+    要退出goto的时候
+
+用法：
+  int a = 4;
+
+
+  loop:
+
+      printf(&quot;hello world\n&quot;);
+
+  goto loop;
+
+
+  goto用法:
+
+  #include &lt;stdio.h&gt;
+
+  int main()
+  {
+    int a = 10;
+
+    if(a != 10)
+    {
+      mask:
+        printf(&quot;%d\n&quot;,a);
+        return 0;
+    }
+
+    loop:
+      a++;
+      if(a == 20)
+        goto mask;
+    goto loop;
+
+
+    return 0;
+  }
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+    int a = 11;
+
+    while(1)
+    {
+      printf(&quot;输入一个数&quot;);
+      scanf(&quot;%d&quot;,&amp;a);
+      while(getchar()!=&apos;\n&apos;);
+      switch (a)
+      {
+        case 10: a++;break;
+        case 11: a--;
+        case 12: a=11;break;
+        default: printf(&quot;其他情况\n&quot;);break;
+      }
+      printf(&quot;a = %d\n&quot;,a);//-----11
+      //如果符合条件的那个case没有break,那么会按顺序执行下面case,直到遇到break
+    }
+
+  return 0;
+}
+
+
+#include &lt;stdio.h&gt;
+
+
+int main()
+{
+  int a = 4;
+
+  //打印a的地址
+  printf(&quot;%p\n&quot;,&amp;a);
+  //0x7ffe43cc7764
+
+  char b = &apos;S&apos;;
+  printf(&quot;%p\n&quot;,b);
+
+  return 0;
+}
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+
+        int a = 2;
+        int b = 3;
+
+        int d = a&gt;b?a:b; //d等于3
+        a&gt;b?printf(&quot;a&gt;b&quot;):printf(&quot;a&lt;b&quot;);
+
+        return 0;
+
+}</code></pre><p>  练习：</p>
+<pre><code>键盘输入一个数（能持续输入），判断这个数是否能被5整除，如果不能把这个数递增知道变成能被5整除的数。
+
+
+#include &lt;stdio.h&gt;
+
+int main()
+{
+  //什么数就可以被5整除 个位数时0或者5的数  11 --&gt;15  17 --&gt;20  14 --&gt;15
+  int data;
+  while(1)
+  {
+    printf(&quot;请输入一个数&quot;);
+    scanf(&quot;%d&quot;,&amp;data);
+    while(getchar()!=&apos;\n&apos;);
+    if(data %5 == 0)
+    {
+      printf(&quot;%d能被5整除\n&quot;,data);
+    }
+    else
+    {
+      printf(&quot;%d不能被5整除，需要加%d才可以被整除\n&quot;,data,5-(data%5));
+    }
+  }
+
+  return 0;
+}
+
+一、单项选择题
+
+1、表达式 1? (0?3: 2): (10?1: 0)  的值是（A）。
+
+A)2     B)  3      C)   1     D） 0
+
+2、以下代码执行完毕后，i的值为（A）。
+
+A)0      B)  11      C)10     D)出错
+
+3、定义int a=3,b=6;，则表达式 int c = (a ^ b)&lt;&lt;2中,c的二进制值是（D）。
+
+A)00011100    B)00000111    C）00000001   D）00010100
+
+  4、在while(!a)中，其中!a与表达式（A）等价。
+A）a==0      B）a==1       C）a!=1       D）a!=0
+
+5、int a,i=2;  if(a=i++ != 4),该判断语句结果为（A）
+
+A）真     B）假   C)语法有误  D）其他
+
+编程题：
+
+1、编写一个程序，此程序要求输入天数，然后将该值转换为星期数和天数。例如：
+输入：18天
+输出：2星期 + 4天
+#include &lt;stdio.h&gt;
+
+int main(void)
+{
+  int day;
+  int week;
+  int data;
+  while(1)
+{ 
+  printf(“请输入天数:”);
+  scanf(“%d”,&amp;day);
+  week = day/7;
+  data = day%7;
+  printf(“%d星期+%d天\n”,week,data);
+  break;
+}
+return 0;
+}
+
+
+
+2、从键盘输入10个数，统计非负数的个数，并计算非负数的和。
+ #include &lt;stdio.h&gt;
+ int main(void)
+ {
+  int num[10];
+  int sum=0;
+  int a=0;
+  while(1)
+{
+printf(“请输入10个数:\n”);
+for(int i=0;i&lt;10;i++)
+{
+  scanf(“%d”,&amp;num[i]);
+  while(getchar() != ‘\n’);
+if(num[i] &gt;=0)
+{
+  a++;
+  sum += num[i];
+}
+    }
+prinf(“非负数的个数为%d,非负数的和为%d\n”,a,sum);
+
+return 0;
+}
+
+计算22左移3位的最后结果
+22(D)=10110(B)  &lt;&lt;3-----&gt;10110000(B) = 176(D)</code></pre><h3 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h3><p><img src="/hexo-private-blog-website/images/%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt=""></p>
+<h3 id="支付宝付款"><a href="#支付宝付款" class="headerlink" title="支付宝付款:"></a>支付宝付款:</h3><p><img src="/hexo-private-blog-website/images/alipay.jpg" alt=""></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/25727660.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/1436910205.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='http://link.hhtjim.com/163/1439111141.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='http://link.hhtjim.com/163/1442842748.mp3'></li>
+                        
+                    
+                        
+                            <li title='4' data-url='http://link.hhtjim.com/163/1422992414.mp3'></li>
+                        
+                    
+                        
+                            <li title='5' data-url='http://link.hhtjim.com/163/1434057772.mp3'></li>
+                        
+                    
+                        
+                            <li title='6' data-url='http://link.hhtjim.com/163/1429908253.mp3'></li>
+                        
+                    
+                        
+                            <li title='7' data-url='http://link.hhtjim.com/163/1432428744.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/hexo-private-blog-website/js/plugin.js"></script>
+<script src="/hexo-private-blog-website/js/typed.js"></script>
+<script src="/hexo-private-blog-website/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/hexo-private-blog-website/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/hexo-private-blog-website/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/hexo-private-blog-website/photoswipe/photoswipe.min.js"></script>
+<script src="/hexo-private-blog-website/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
