@@ -48,39 +48,67 @@ Linux基本操作
                 .c里面int a；4个字节
 
 ### 记录
-① root用户输入passwd指令可以直接修改密码(其它用户也可以直接修改);
-而普通用户输入passwd指令只可以修改它自己的密码
-②嵌入式方向职位：
-QT工程师
-嵌入式物联网工程师
-嵌入式驱动工程师
-嵌入式AI开发工程师
-③根目录(/)下的目录结构、目录的分类
-bin: binary 该目录中存储的都是些二进制文件，文件都是可以被运行的 可执行程序
-dev：在linux下一切皆文件  device 该目录中主要存放的是外接设备，例如U盘或者新添加的硬盘等。在其中的外接设备是不能直接被使用的，它需要挂载才能使用(类似于Windows下的分配盘符)
-etc：该目录主要存储的是系统的一些配置文件
-home：表示除了root用户以外其它用户的家目录，类似于Windows下的User/用户目录
-proc：process，表示进程，该目录中存储的是linux运行时候的进程
-root：该目录是root用户自己的家目录
-sbin：该目录是存储一些可以被执行的二进制文件，但是必须得有超级管理员的权限的用户才能够执行
-tmp：存放临时文件，当系统运行时候产生的临时文件会存储在这个目录
-usr：该目录是存放用户自己安装的应用程序，类似于Windows下的program files
-var：该目录存放的是程序/系统的日志文件的目录
-mnt：该目录存放的是 当外接设备需要挂载的时候，就需要挂载到mnt目录下
-lib：该目录存放的是linux运行的时候需要加载的一些动态库(类似于Windows下的dll文件)
+    ① root用户输入passwd指令可以直接修改密码(其它用户也可以直接修改);
+    而普通用户输入passwd指令只可以修改它自己的密码
+    ②嵌入式方向职位：
+    QT工程师
+    嵌入式物联网工程师
+    嵌入式驱动工程师
+    嵌入式AI开发工程师
+    ③根目录(/)下的目录结构、目录的分类
+    bin: binary 该目录中存储的都是些二进制文件，文件都是可以被运行的 可执行程序
+    dev：在linux下一切皆文件  device 该目录中主要存放的是外接设备，例如U盘或者新添加的硬盘等。在其中的外接设备是不能直接被使用的，它需要挂载才能使用(类似于Windows下的分配盘符)
+    etc：该目录主要存储的是系统的一些配置文件
+    home：表示除了root用户以外其它用户的家目录，类似于Windows下的User/用户目录
+    proc：process，表示进程，该目录中存储的是linux运行时候的进程
+    root：该目录是root用户自己的家目录
+    sbin：该目录是存储一些可以被执行的二进制文件，但是必须得有超级管理员的权限的用户才能够执行
+    tmp：存放临时文件，当系统运行时候产生的临时文件会存储在这个目录
+    usr：该目录是存放用户自己安装的应用程序，类似于Windows下的program files
+    var：该目录存放的是程序/系统的日志文件的目录
+    mnt：该目录存放的是 当外接设备需要挂载的时候，就需要挂载到mnt目录下
+    lib：该目录存放的是linux运行的时候需要加载的一些动态库(类似于Windows下的dll文件)
 
-个人观点：开源并不意味着免费。
-以上有些是参考的资料，有些是个人观点。
+    个人观点：开源并不意味着免费。
+    以上有些是参考的资料，有些是个人观点。
+
+
+
+  1、如何修改用户密码
+  答：  ubuntu 终端先输入: sudo passwd xxx(用户)，根据提示输入更改密码
+
+  2、根目录文件夹的特点
+  答：/bin     存放二进制可执行文件，可以被root和一般的账号使用
+      /boot    Ubuntu内核和启动文件
+      /dev     设备驱动文件
+      /etc     存放一些系统配置文件，比如用户账号和密码文件，各种服务的起始地址。
+      /home    系统默认的用户主文件夹，一般创建用户账户的时候，默认的用户主文件夹都会放到此目录下。
+      /lib     存放库文件
+      /media   此目录下放置可插拔设备，比如SD卡，U盘就是挂载到这个目录中。
+      /mnt     用户可使用的挂载点，如果要挂载一些额外的设备，那么就可以挂载到此处。
+      /opt     可选的文件和程序存放目录，给第三方软件放置的目录。
+      /root    root用户目录，系统管理员目录。
+      /sbin    存放一些二进制可执行文件,一般是系统开机过程中所需要的命令。
+      /srv     服务相关目录
+      /sys     记录内核信息，虚拟文件系统。  
+      /tmp     临时目录
+      /var     存放一些变化的文件，比如日志文件
+      /usr     存放于系统用户有关的文件，会占用很大的存储空间！
+      /proc    虚拟文件系统，数据放置到内存中，存放系统运行信息
+
+  3、两个嵌入式方向的职位
+  答：   单片机开发
+         机器人研发
+
+
 
 #### alipay Payment:
 ![alipay2.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftfn69zcaj30fb0fhjus.jpg)
-![alipay3.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftfnd2mwgj30fb0f3juw.jpg)
+
 
 #### wechat Payment:
 ![wechat1.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo0b23rj30fb0f0tbz.jpg)
-![wechat01.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo7ojvvj30fb0eujul.jpg)
+
 
 #### tenpay Payment:
 ![tenpay4.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftg6n3n65j30bh0be77h.jpg)
-![tenpay2.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftfsqq26qj30bh0bdgom.jpg)
-![tenpay5.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftg9w5ytlj30bh0bhjuk.jpg)

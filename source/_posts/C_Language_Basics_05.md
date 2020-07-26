@@ -802,5 +802,247 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 		自己写总结。
 
 
+	一、
+
+	自学ungetc函数的用法，写一份对应的例子模板
+
+
+
+
+	答：函数形式：int ungetc(int c, FILE *stream)   头文件包含：#include <stdio.h>
+		函数作用：把一个字符退回到stream代表的文件流中,以便它是下一个被读取到的字符。
+		参数1：int c 用整星形式表示字符
+		参数2：文件流指针，必须是输入流不能是输出流
+		返回值：成功---->字符c
+			失败---->EOF
+		eg:   
+			#include <stdio.h>
+
+
+
+			int main()
+
+			{
+		
+			    char array[] = "ab";
+
+
+		
+			    printf("操作之前：");
+	//验证之前数据	
+			    puts(array);
+
+
+		
+			    array[0] = ungetc('d', stdin);
+	 //函数操作，没有手动输出，自动获取
+			    array[1] = getchar();
+
+
+		
+			    printf("操作之后：");
+	 //验证之后数据对比	
+			    puts(array);
+
+			}
+
+
+
+	二、看c语言api手册，这周末学3个函数。写出该函数的对应的例子
+
+	答：
+		1)函数：int isalnum(int c)
+	
+		作用：检查 c 字符是否为数字或者英文字符
+		头文件：#include<ctype.h>
+		形参c：是一个整型，可以表示一个字符
+		返回值：若是数字或英文，则返回true（非0），否则返回0.
+	eg：
+		#include <stdio.h>
+		#include <ctype.h>
+
+		int main()
+		{
+		    char check_vale[4] = "a1&";
+
+		    for(int i = 0; i < 3; i++)
+		    {
+		        printf("%d\n", isalnum(check_vale[i]));
+		    }
+		}
+		
+		输出结果：8
+			  8
+			  0
+		（经测试，字母大小写输出一样）
+
+
+	2）函数：int isalpha(int c)
+	
+		作用：检查 c 字符是否为英文字符
+		头文件：#include<ctype.h>
+		形参c：是一个整型，可以表示一个字符
+		返回值：若是英文，则返回true（非0），否则返回0.
+	eg：
+		#include <stdio.h>
+		#include <ctype.h>
+
+		int main()
+		{
+		    char check_vale[4] = "a1&";
+
+		    for(int i = 0; i < 3; i++)
+		    {
+		        printf("%d\n", isalpha(check_vale[i]));
+		    }
+		}
+		
+		输出结果：1024
+			  0
+			  0
+		（经测试，字母大小写输出都一样）
+
+	
+	3）int isascii(int c)
+	
+		作用：检查 c 字符是否对应有ASCII码字符
+		头文件：#include<ctype.h>
+		形参c：是一个整型，可以表示一个字符
+		返回值：若是对应有ASCII码字符，则返回true（非0），否则返回0.
+		补充：ascii码对应的整型数为0~127
+	eg：
+		#include <stdio.h>
+		#include <ctype.h>
+
+		int main()
+		{
+		    char check_vale[4] = ｛'d', 137, 23};
+
+		    for(int i = 0; i < 3; i++)
+		    {
+		        printf("%d\n", isascii(check_vale[i]));
+		    }
+		}
+		
+		输出结果：1
+			  0
+			  1
+
+
+		1.自学ungetc函数的用法，写一份对应的例子模板
+		答：
+		#include <stdio.h>
+
+
+		int main()
+		{
+			char ch = 'a';
+			
+			int ret = ungetc(ch,stdin);
+
+			printf("%c\n%d\n",ch,ret);	
+
+			return 0;	
+		}
+
+
+		自学ungetc函数的用法，写一份对应的例子模板
+		程序：
+		/*
+		 函数原形：
+				int ungetc(int c, FILE *stream)；
+		 函数作用：
+		  		  将指定字符c写回文件流，返回该写回字符
+		 参数  ：
+		 				int c ：需要写回的指定字符c ； 
+				FILE * 	stream：接收写回字符文件流
+		 返回值：
+		 		成功：返回该写回字符c
+		 */	
+		#include <stdio.h>
+		int main(int argc, char const *argv[])
+		{
+
+			char ret;
+			ret = ungetc(84, stdin);
+			putchar(ret);
+			printf("\n");
+			return 0;
+
+		}
+
+
+		1、查看C语言API手册，这周末学3个函数。写出该函数的对应的例子。
+		答：
+		①rindex
+		 	函数头文件：#include <string.h>
+		函数原型：char *rindex(const char *s, int c);
+		*s：被查找的字符串
+		c：被查找的字符
+		返回值：如果找到指定的字符则返回该字符所在的地址，否则返回0。
+		功能：查找字符串s中最后一个出现的指定字符c的地址，然后将该字符出现的地址返回。字符串结束字符(NULL)也视为字符串一部分。
+		程序：
+		#include <stdio.h>
+		#include <string.h>
+
+		int main()
+		{
+			char buf[] = "438978584418656";
+			char *p = rindex(buf,'8');
+			printf("%s\n",p);
+			
+			return 0;	
+		}
+
+
+		②fprintf
+		函数头文件：#include <stdio.h>
+		函数原型：int fprintf(FILE *stream, const char *format, ...); 
+		FILE *stream：文件流指针，将结果输出到指定文件中直到出现“\0”为止。
+		*format：要被写入到流 stream 中的文本
+		返回值：如果找到指定的字符则返回该字符所在的地址，否则返回0。
+		功能：格式化输出数据至文件
+		程序：
+		#include <stdio.h>
+
+		int main()
+		{
+			int a = 100;
+			int b = -89;
+			double c = 52.857488888888;
+
+			fprintf(stdout,"%d,%f,%o\n",b,c,a);
+			fprintf(stdout,"%d,%*d\n",a,1,a);
+			
+			return 0;	
+		}
+
+
+		③strtol
+		函数头文件：#include <stlib.h>
+		函数原型：long int strtol(const char *nptr, char **endptr, int base); 
+		*nptr：要转换的字符串
+		**endptr：NULL符合条件。
+		base：要采用的进制方式，如为10则采用十进制。范围从2至36，或0.
+		返回值：返回转换后的长整型数，否则返回ERANGE并将错误代码存入errno中。 
+		功能：将字符串转换成长整型数
+		程序：
+		/*将下列字符串分别转化为十进制、十六进制的整数*/
+
+		#include <stdio.h>
+		#include <stdlib.h>
+
+		int main()
+		{
+			char a[] = "88888";
+			char b[] = "face";
+
+			printf("a = %ld\n",strtol(a,NULL,10));
+			printf("b = %ld\n",strtol(b,NULL,16));
+			
+			return 0;	
+		}
+
+
 ### 支付宝付款:
 ![](/hexo-private-blog-website/images/alipay.jpg)

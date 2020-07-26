@@ -5,7 +5,7 @@ date: 2020-07-26 11:53:18
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
 # C语言基础
-  1.1 刷新输入输出缓存区的API
+      1.1 刷新输入输出缓存区的API
       fflush:
           头文件：#include <stdio.h>
           原型：
@@ -225,12 +225,12 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
                   int a = 10;
                   printf("%f\n",(flaot)a);  //为了避免报警告，吧a的类型转成float的类型
 ======================================================================================================
-一、运算符
+  一、运算符
 
-  注：运算符的优先级（找一下对应图片）
+    注：运算符的优先级（找一下对应图片）
 
 
-  1.1 算数运算符   + - * / % ++ --
+    1.1 算数运算符   + - * / % ++ --
 
     例子：
 
@@ -471,7 +471,7 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
 二、控制流语句
 
-  九个：
+    九个：
       if
 
       for
@@ -725,6 +725,60 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
       计算22左移3位的最后结果
       22(D)=10110(B)  <<3----->10110000(B) = 176(D)
+
+
+    一、 单项选择题：1、A    2、B    3、D    4、B    5、C
+
+    二、编程题：
+    1、
+    #include <stdio.h>
+
+    int main()
+    {
+        int day;
+
+        printf("输入：");
+        scanf("%d", &day);         //输入天数
+        while(getchar() != '\n');
+
+        printf("输出：");
+        printf(" %d 星期 + %d 天\n", day/7, 7 - day % 7);  //输出星期、剩余天数
+
+       return 0;
+    }
+
+    2、
+    #include <stdio.h>
+
+    int main()
+    {
+        int buf[10], i, count = 0, sum = 0;
+
+        /*输入10个数据*/
+        for(i = 0; i < 10; i++)
+        {
+            scanf("%d", &buf[i]);
+        }
+
+        /*输出非负数个数和非负数之和*/
+        for(i = 0; i < 10; i++)
+        {
+            if(buf[i] >= 0)
+            {
+                count++;       //个数
+                sum += buf[i];  //之和
+            }
+        }
+
+        printf("非负数个数：%d\n", count);
+        printf("非负数之和：%d\n", sum);
+
+        return 0;
+    }
+
+    三、计算22左移3位的最后结果
+    答：22 * 2^3 = 176
+      
 
 
 ### 自动类型转换

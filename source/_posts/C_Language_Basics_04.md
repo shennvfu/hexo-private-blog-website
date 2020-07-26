@@ -752,6 +752,96 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 		}
 
 
+		1、有一个数组：int array[20] = {1,0,1,0,0,1,0,1,1,1,
+		                                   0,1,0,1,1,0,1,0,1,0};
+		      数组中的元素都是由0和1组成，试着写一份程序，计算数组中0，1的个数。
+		      要求：不得使用任何形式的判断语句。
+
+		    答：#include <stdio.h>
+
+			int main()
+			{
+			    int sum = 0;
+			    int array[20] = {1, 0, 1, 0, 0, 1, 0, 1, 1, 1,
+			                      0, 1, 0, 1, 1, 0, 1, 0, 1, 0};
+
+		 	   for(int i = 0; i < 20; i++)  //计算数组总和
+			    {
+			        sum += array[i];
+			    }
+
+			    printf("该数组中 0 个数：%d\n", 20 - sum);
+			    printf("该数组中 1 个数：%d\n", sum);
+			}
+
+		2、生成一个随机数组，找出数组里面最大的数。
+
+		答：    #include <stdio.h>
+			#include <stdlib.h>
+			#include <time.h>
+
+			#define count 10
+
+			int get_randnum(int array[count]);
+
+			int get_randnum(int array[count])
+			{
+			    srand(time(0));
+
+			    for(int i = 0; i < count; i++)
+			    {
+			        array[i] = rand() % 100;
+			    }
+
+			    return 0;
+			}
+
+			int main()
+			{
+			    int array[count];
+
+			    get_randnum(array);  //生成count个随机数
+
+			    for(int i = 1; i < count; i++)  //array[0]和其他数比较，把大值放到array[0]
+			    {
+			        if(array[0] < array[i])
+			        {
+			            array[0] = array[i];
+			        }
+			    }
+
+			    printf("最大的数：%d\n", array[0]);
+
+			    return 0;
+			}
+
+		3、自己查找一个memset函数的第二个形参int c，是不是可以填充任意的数据
+
+		答：可以是任意值，但是可能会出现随意值，所以c值一般取值0，数组字符串时也一般可以去' '.
+
+
+
+		1：有一个数组：int array[20] = {1,0,1,0,0,1,0,1,1,1,
+		                            0,1,0,1,1,0,1,0,1,0};
+		     数组中的元素都是由0和1组成，试着写一份程序，计算数组中0，1的个数。
+		     要求：不得使用任何形式的判断语句	
+		答：
+		#include <stdio.h>
+
+		int main()
+		{
+			int array[20] = {1,0,1,0,0,1,0,1,1,1,
+							0,1,0,1,1,0,1,0,1,0};
+			int sum1=0,sum2=0;
+			for(int i=0;i<20;i++)
+			{
+				sum1+=array[i];	
+				sum2=20-sum1;
+			}
+			printf("%d个1,%d个0\n",sum1,sum2);
+			
+			return 0;	
+		}
 
 
 ### 支付宝付款:
