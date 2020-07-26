@@ -102,13 +102,18 @@ Linux基本操作
 
 
 
-#### alipay Payment:
-![alipay2.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftfn69zcaj30fb0fhjus.jpg)
-
-
-#### wechat Payment:
-![wechat1.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo0b23rj30fb0f0tbz.jpg)
-
-
-#### tenpay Payment:
-![tenpay4.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gftg6n3n65j30bh0be77h.jpg)
+### 内存分布：
+![](/hexo-private-blog-website/images/内存分布.bmp)
+![](/hexo-private-blog-website/images/内存分布.png)
+### 指针数组:
+![](/hexo-private-blog-website/images/整型指针数组.bmp)
+![](/hexo-private-blog-website/images/字符指针数组.bmp)
+### 二维数组:
+![](/hexo-private-blog-website/images/二维数组.png)
+![](/hexo-private-blog-website/images/二维数组1.png)
+### 支付宝打赏:
+![](/hexo-private-blog-website/images/alipay.jpg)
+### 微信打赏:
+![wechat.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggvv58jjj30u010sgnq.jpg)
+### 财付通打赏：
+![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)
