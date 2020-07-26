@@ -308,59 +308,153 @@
   b = 11111111;
   看11111111是哪个负数的补码？
   11111110
-  00000001 1的源码 -1</code></pre><p>基本的输入输出函数：<br>  在标准输入输出的头文件：stdio.h<br>  文件指针：<br>  extern struct _IO_FILE <em>stdin;        /</em> Standard input stream.  <em>/<br>  extern struct _IO_FILE *stdout;        /</em> Standard output stream.  <em>/<br>  extern struct _IO_FILE *stderr;        /</em> Standard error output stream.  */</p>
-<p>  man手册：<br>      man man</p>
-<pre><code> 1
- 可执行程序或 shell 命令  man 1 ls
- 2
- 系统调用(内核提供的函数)
- 3
- 库调用(程序库中的函数)
+  00000001 1的源码 -1
 
 
- 输出：printf puts putchar fputs
+基本的输入输出函数：
+  在标准输入输出的头文件：stdio.h
+  文件指针：
+  extern struct _IO_FILE *stdin;        /* Standard input stream.  */
+  extern struct _IO_FILE *stdout;        /* Standard output stream.  */
+  extern struct _IO_FILE *stderr;        /* Standard error output stream.  */
 
-   puts： 打印输出字符串
+  man手册：
+      man man
 
-   函数原型：int puts(const char *s);
-   形参：s 存放要打印的字符串的首地址的指针变量
-   返回值：
-
-   char buf[] = &quot;hellowrld&quot;;
-   puts(buf); //buf数组名是数组首元素的地址
-
-
- 输入：scanf  gets getchar fgets
+  1
+  可执行程序或 shell 命令  man 1 ls
+  2
+  系统调用(内核提供的函数)
+  3
+  库调用(程序库中的函数)
 
 
- 练习：
-     定义一个整形变量，赋值一个十六进制的数，然输出它对应八进制的数。
+  输出：printf puts putchar fputs
 
-     把各个类型的输出形式打一下。
+    puts： 打印输出字符串
 
-     short的全称
+    函数原型：int puts(const char *s);
+    形参：s 存放要打印的字符串的首地址的指针变量
+    返回值：
 
-     写一份循环打印helloworld的代码
-       特定条件：
-             一秒打印一次
-             不用换行的打印，
+    char buf[] = &quot;hellowrld&quot;;
+    puts(buf); //buf数组名是数组首元素的地址
 
-       看看现象
 
-     写一份循环输入一个字符数据，然后在打印改数据
+  输入：scanf  gets getchar fgets
 
-添加和删除用户和组别（必做）
-指针变量的大小？（必做）
-找一下刷新缓存区的API（必做）
-找一下设置缓存区的大小的API（选做）
-理解一下什么叫做C语言程序的生命周期。（必做）</code></pre><p>①<br>添加用户可以使用useradd指令 useradd 选项 用户名<br>常用选项：<br>-g: 表示指定用户的用户主组，选项的值可以是用户组的id，也可以是组名<br>-G: 表示指定用户的用户附加组，选项的值可以是用户组的id，也可以是组名<br>-u: uid，用户的id（用户的标识符)，系统默认会从500之后按顺序分配uid，如果不想使用系统分配的，可以通过该选项自定义<br>也可以直接创建用户 如：useradd zhangsan 含义 创建一个为张三的用户名<br>注意：在不添加选项的时候，执行useradd之后会执行一系列的操作<br>a. 创建同名的家目录；<br>b. 创建同名的用户组；<br>添加用户组可以使用usergroup指令 groupadd 选项 用户组名<br>常用选项：<br>-g：类似用户添加里的“-u”，-g表示选择自己设置一个自定义的用户组ID数字，如果自己不指定，则默认从500之后递增<br>如:用groupadd指令创建一个新的用户组，命名为Administrators<br>groupadd Administrators<br>删除用户可以使用userdel指令 userdel 选项 用户名<br>常用选项：<br>-r：表示删除用户的同时，删除其家目录<br>删除用户组可以使用groupdel指令 groupdel 用户组名<br>注意：当如果需要删除一个组，但是这个组是某个用户的主组时，则不允许删除；如果确实需要删除，则先从组内移出所有用户。</p>
-<p>②<br>一个任何类型的指针变量所占用的字节大小都是4个字节<br>这个指针变量所占用的字节大小与地址总线有关，而32位的操作系统就是指地址总线是32位的操作系统<br>也就是说操作系统的位数决定了指针变量所占的字节数</p>
-<p>③<br>fflush<br>int fflush(FILE* stream);<br>用于清空文件缓冲区，如果文件是以写的方式打开的，则把缓冲区内容写入文件。<br>此函数包含在stdio.h头文件中，用来强制将缓冲区中的内容写入文件。<br>函数功能：清除一个流，即清除文件缓冲区.</p>
-<p>④<br>如果我们没有自己设置缓冲区的话，系统会默认为标准输入输出设置一个缓冲区，这个缓冲区的大小通常是512个字节的大小。<br>缓冲区大小由 stdio.h 头文件中的宏 BUFSIZ 定义，如果希望查看它的大小，包含头文件，直接输出它的值即可：<br>printf(“%d”, BUFSIZ);<br>缓冲区的大小是可以改变的，也可以将文件关联到自定义的缓冲区，详情可以查看 setvbuf() 和 setbuf() 函数。</p>
-<p>⑤<br>程序的生命周期是从源程序开始的<br>源程序经过编译最终生成可执行文件<br>这个过程分为四个阶段完成，执行这四个阶段的程序（预编译、编译、汇编、链接）一起构成了编译系统。<br>预编译：实现include头文件的包含和宏定义的替换 gcc -E hello.c -o hello.i<br>编译：检查c语言语法 gcc -S hello.i -o hello.s<br>汇编：检查汇编的语法 gcc -c hello.s -o hello.o<br>链接：把二进制文件和库文件链接起来 gcc hello.o -o hello<br>最终得到可执行的二进制目标文件，加载到运行内存中，由系统运行执行。</p>
-<h4 id="alipay-Payment"><a href="#alipay-Payment" class="headerlink" title="alipay Payment:"></a>alipay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfn69zcaj30fb0fhjus.jpg" alt="alipay2.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfnd2mwgj30fb0f3juw.jpg" alt="alipay3.jpg"></p>
-<h4 id="wechat-Payment"><a href="#wechat-Payment" class="headerlink" title="wechat Payment:"></a>wechat Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo0b23rj30fb0f0tbz.jpg" alt="wechat1.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo7ojvvj30fb0eujul.jpg" alt="wechat01.jpg"></p>
-<h4 id="tenpay-Payment"><a href="#tenpay-Payment" class="headerlink" title="tenpay Payment:"></a>tenpay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftg6n3n65j30bh0be77h.jpg" alt="tenpay4.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfsqq26qj30bh0bdgom.jpg" alt="tenpay2.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftg9w5ytlj30bh0bhjuk.jpg" alt="tenpay5.jpg"></p>
+
+  练习：
+      定义一个整形变量，赋值一个十六进制的数，然输出它对应八进制的数。
+
+      把各个类型的输出形式打一下。
+
+      short的全称
+
+      写一份循环打印helloworld的代码
+        特定条件：
+              一秒打印一次
+              不用换行的打印，
+
+        看看现象
+
+      写一份循环输入一个字符数据，然后在打印改数据
+
+ 添加和删除用户和组别（必做）
+ 指针变量的大小？（必做）
+ 找一下刷新缓存区的API（必做）
+ 找一下设置缓存区的大小的API（选做）
+ 理解一下什么叫做C语言程序的生命周期。（必做）
+
+① 
+添加用户可以使用useradd指令 useradd 选项 用户名
+常用选项：
+-g: 表示指定用户的用户主组，选项的值可以是用户组的id，也可以是组名
+-G: 表示指定用户的用户附加组，选项的值可以是用户组的id，也可以是组名
+-u: uid，用户的id（用户的标识符)，系统默认会从500之后按顺序分配uid，如果不想使用系统分配的，可以通过该选项自定义
+也可以直接创建用户 如：useradd zhangsan 含义 创建一个为张三的用户名
+注意：在不添加选项的时候，执行useradd之后会执行一系列的操作
+a. 创建同名的家目录；
+b. 创建同名的用户组；
+添加用户组可以使用usergroup指令 groupadd 选项 用户组名
+常用选项：
+-g：类似用户添加里的“-u”，-g表示选择自己设置一个自定义的用户组ID数字，如果自己不指定，则默认从500之后递增
+如:用groupadd指令创建一个新的用户组，命名为Administrators 
+groupadd Administrators
+删除用户可以使用userdel指令 userdel 选项 用户名
+常用选项：
+-r：表示删除用户的同时，删除其家目录
+删除用户组可以使用groupdel指令 groupdel 用户组名
+注意：当如果需要删除一个组，但是这个组是某个用户的主组时，则不允许删除；如果确实需要删除，则先从组内移出所有用户。
+
+② 
+一个任何类型的指针变量所占用的字节大小都是4个字节
+这个指针变量所占用的字节大小与地址总线有关，而32位的操作系统就是指地址总线是32位的操作系统
+也就是说操作系统的位数决定了指针变量所占的字节数
+
+③ 
+fflush
+int fflush(FILE* stream);
+用于清空文件缓冲区，如果文件是以写的方式打开的，则把缓冲区内容写入文件。
+此函数包含在stdio.h头文件中，用来强制将缓冲区中的内容写入文件。
+函数功能：清除一个流，即清除文件缓冲区.
+
+④
+如果我们没有自己设置缓冲区的话，系统会默认为标准输入输出设置一个缓冲区，这个缓冲区的大小通常是512个字节的大小。
+缓冲区大小由 stdio.h 头文件中的宏 BUFSIZ 定义，如果希望查看它的大小，包含头文件，直接输出它的值即可：
+printf(“%d”, BUFSIZ);
+缓冲区的大小是可以改变的，也可以将文件关联到自定义的缓冲区，详情可以查看 setvbuf() 和 setbuf() 函数。
+
+⑤
+程序的生命周期是从源程序开始的
+源程序经过编译最终生成可执行文件
+这个过程分为四个阶段完成，执行这四个阶段的程序（预编译、编译、汇编、链接）一起构成了编译系统。
+预编译：实现include头文件的包含和宏定义的替换 gcc -E hello.c -o hello.i
+编译：检查c语言语法 gcc -S hello.i -o hello.s
+汇编：检查汇编的语法 gcc -c hello.s -o hello.o
+链接：把二进制文件和库文件链接起来 gcc hello.o -o hello
+最终得到可执行的二进制目标文件，加载到运行内存中，由系统运行执行。
+
+
+
+
+  1、如何添加、删除用户和用户组
+  答：  添加用户：sudo useradd xxx  或 sudo adduser xxx
+        删除用户：sudo userdel xxx  或 sudo deluser xxx
+        添加用户组：sudo groupadd   或 sudo addgroup xxx
+        删除用户组：sudo groupdel   或 sudo delgroup xxx
+        查看用户：finger xxx
+        显示用户组内用户：groups xxx
+        （cat /etc/group）
+
+
+  2、指针变量的大小？
+  答：在64位操作系统下，int*、char*等指针类型都是8个字节。
+
+
+  3、找一下刷新缓存区的API
+  答：输入缓存区的刷新方式：
+    第一种    while ((ch = getchar()) != &apos;\n&apos;)；等待
+    第二种    使用函数 fflush(stdin)清空缓存区，头文件是stdio.h
+
+      输出缓存区的刷新方式：
+    使用函数fflush(stdout)清空缓存区，头文件是stdio.h
+
+
+
+  4、找一下设置缓存区的大小的API
+  答：缓冲区大小由 stdio.h 头文件中的宏 BUFSIZ 定义，默认值为8192，可以通过
+      int setvbuf(FILE *stream, char *buffer, int mode, size_t size)函数自定义。
+
+
+  5、理解一下什么叫做C语言程序的生命周期。
+  答：c语言程序的生命周期是从源程序开始的，源程序是程序员创建和保存的.c后缀文件，
+      .c文件在linux系统中通过编译器驱动程序分为预编译器处理头文件和宏定义生成.i文
+      件、编译器检查C语言语法生成.s汇编文件、汇编器检查汇编语法生成.o不可执行二进
+      制文件、链接器把.o文件和库文件链接执行生成可执行的目标文件四个阶段,可被加载
+      到内存，从而最终被系统执行以实现功能。</code></pre><h4 id="alipay-Payment"><a href="#alipay-Payment" class="headerlink" title="alipay Payment:"></a>alipay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfn69zcaj30fb0fhjus.jpg" alt="alipay2.jpg"></p>
+<h4 id="wechat-Payment"><a href="#wechat-Payment" class="headerlink" title="wechat Payment:"></a>wechat Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo0b23rj30fb0f0tbz.jpg" alt="wechat1.jpg"></p>
+<h4 id="tenpay-Payment"><a href="#tenpay-Payment" class="headerlink" title="tenpay Payment:"></a>tenpay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftg6n3n65j30bh0be77h.jpg" alt="tenpay4.jpg"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">

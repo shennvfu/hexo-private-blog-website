@@ -83,11 +83,34 @@
   数据库：SQL
 
   硬件:画板、焊接...</code></pre><h2 id="现阶段的知识点"><a href="#现阶段的知识点" class="headerlink" title="现阶段的知识点"></a>现阶段的知识点</h2><p>Linux基本操作<br>    C语言：<br>      C语言的本质<br>        数据类型<br>        运算符<br>        控制流语句（9个）<br>        数组<br>        函数（一:声明、定义、封装、调用）<br>        指针（一级指针，指针和数组和函数的关系）<br>        结构体、枚举、联合体<br>        函数（二、回调函数、递归函数、内联函数、变参函数：printf scanf）<br>        特殊关键字<br>        内存分布（程序是在哪里运行的？是怎么会运行的？ ）<br>                在运行内存里面运行的 CPU –&gt; 系统  –&gt; 程序</p>
-<pre><code>.c里面int a；4个字节</code></pre><h3 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h3><p>① root用户输入passwd指令可以直接修改密码(其它用户也可以直接修改);<br>而普通用户输入passwd指令只可以修改它自己的密码<br>②嵌入式方向职位：<br>QT工程师<br>嵌入式物联网工程师<br>嵌入式驱动工程师<br>嵌入式AI开发工程师<br>③根目录(/)下的目录结构、目录的分类<br>bin: binary 该目录中存储的都是些二进制文件，文件都是可以被运行的 可执行程序<br>dev：在linux下一切皆文件  device 该目录中主要存放的是外接设备，例如U盘或者新添加的硬盘等。在其中的外接设备是不能直接被使用的，它需要挂载才能使用(类似于Windows下的分配盘符)<br>etc：该目录主要存储的是系统的一些配置文件<br>home：表示除了root用户以外其它用户的家目录，类似于Windows下的User/用户目录<br>proc：process，表示进程，该目录中存储的是linux运行时候的进程<br>root：该目录是root用户自己的家目录<br>sbin：该目录是存储一些可以被执行的二进制文件，但是必须得有超级管理员的权限的用户才能够执行<br>tmp：存放临时文件，当系统运行时候产生的临时文件会存储在这个目录<br>usr：该目录是存放用户自己安装的应用程序，类似于Windows下的program files<br>var：该目录存放的是程序/系统的日志文件的目录<br>mnt：该目录存放的是 当外接设备需要挂载的时候，就需要挂载到mnt目录下<br>lib：该目录存放的是linux运行的时候需要加载的一些动态库(类似于Windows下的dll文件)</p>
-<p>个人观点：开源并不意味着免费。<br>以上有些是参考的资料，有些是个人观点。</p>
-<h4 id="alipay-Payment"><a href="#alipay-Payment" class="headerlink" title="alipay Payment:"></a>alipay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfn69zcaj30fb0fhjus.jpg" alt="alipay2.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfnd2mwgj30fb0f3juw.jpg" alt="alipay3.jpg"></p>
-<h4 id="wechat-Payment"><a href="#wechat-Payment" class="headerlink" title="wechat Payment:"></a>wechat Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo0b23rj30fb0f0tbz.jpg" alt="wechat1.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo7ojvvj30fb0eujul.jpg" alt="wechat01.jpg"></p>
-<h4 id="tenpay-Payment"><a href="#tenpay-Payment" class="headerlink" title="tenpay Payment:"></a>tenpay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftg6n3n65j30bh0be77h.jpg" alt="tenpay4.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfsqq26qj30bh0bdgom.jpg" alt="tenpay2.jpg"><br><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftg9w5ytlj30bh0bhjuk.jpg" alt="tenpay5.jpg"></p>
+<pre><code>.c里面int a；4个字节</code></pre><h3 id="记录"><a href="#记录" class="headerlink" title="记录"></a>记录</h3><pre><code>① root用户输入passwd指令可以直接修改密码(其它用户也可以直接修改);
+而普通用户输入passwd指令只可以修改它自己的密码
+②嵌入式方向职位：
+QT工程师
+嵌入式物联网工程师
+嵌入式驱动工程师
+嵌入式AI开发工程师
+③根目录(/)下的目录结构、目录的分类
+bin: binary 该目录中存储的都是些二进制文件，文件都是可以被运行的 可执行程序
+dev：在linux下一切皆文件  device 该目录中主要存放的是外接设备，例如U盘或者新添加的硬盘等。在其中的外接设备是不能直接被使用的，它需要挂载才能使用(类似于Windows下的分配盘符)
+etc：该目录主要存储的是系统的一些配置文件
+home：表示除了root用户以外其它用户的家目录，类似于Windows下的User/用户目录
+proc：process，表示进程，该目录中存储的是linux运行时候的进程
+root：该目录是root用户自己的家目录
+sbin：该目录是存储一些可以被执行的二进制文件，但是必须得有超级管理员的权限的用户才能够执行
+tmp：存放临时文件，当系统运行时候产生的临时文件会存储在这个目录
+usr：该目录是存放用户自己安装的应用程序，类似于Windows下的program files
+var：该目录存放的是程序/系统的日志文件的目录
+mnt：该目录存放的是 当外接设备需要挂载的时候，就需要挂载到mnt目录下
+lib：该目录存放的是linux运行的时候需要加载的一些动态库(类似于Windows下的dll文件)
+
+个人观点：开源并不意味着免费。
+以上有些是参考的资料，有些是个人观点。</code></pre><p>  1、如何修改用户密码<br>  答：  ubuntu 终端先输入: sudo passwd xxx(用户)，根据提示输入更改密码</p>
+<p>  2、根目录文件夹的特点<br>  答：/bin     存放二进制可执行文件，可以被root和一般的账号使用<br>      /boot    Ubuntu内核和启动文件<br>      /dev     设备驱动文件<br>      /etc     存放一些系统配置文件，比如用户账号和密码文件，各种服务的起始地址。<br>      /home    系统默认的用户主文件夹，一般创建用户账户的时候，默认的用户主文件夹都会放到此目录下。<br>      /lib     存放库文件<br>      /media   此目录下放置可插拔设备，比如SD卡，U盘就是挂载到这个目录中。<br>      /mnt     用户可使用的挂载点，如果要挂载一些额外的设备，那么就可以挂载到此处。<br>      /opt     可选的文件和程序存放目录，给第三方软件放置的目录。<br>      /root    root用户目录，系统管理员目录。<br>      /sbin    存放一些二进制可执行文件,一般是系统开机过程中所需要的命令。<br>      /srv     服务相关目录<br>      /sys     记录内核信息，虚拟文件系统。<br>      /tmp     临时目录<br>      /var     存放一些变化的文件，比如日志文件<br>      /usr     存放于系统用户有关的文件，会占用很大的存储空间！<br>      /proc    虚拟文件系统，数据放置到内存中，存放系统运行信息</p>
+<p>  3、两个嵌入式方向的职位<br>  答：   单片机开发<br>         机器人研发</p>
+<h4 id="alipay-Payment"><a href="#alipay-Payment" class="headerlink" title="alipay Payment:"></a>alipay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfn69zcaj30fb0fhjus.jpg" alt="alipay2.jpg"></p>
+<h4 id="wechat-Payment"><a href="#wechat-Payment" class="headerlink" title="wechat Payment:"></a>wechat Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftfo0b23rj30fb0f0tbz.jpg" alt="wechat1.jpg"></p>
+<h4 id="tenpay-Payment"><a href="#tenpay-Payment" class="headerlink" title="tenpay Payment:"></a>tenpay Payment:</h4><p><img src="http://ww1.sinaimg.cn/large/006DnxC4gy1gftg6n3n65j30bh0be77h.jpg" alt="tenpay4.jpg"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">

@@ -1,0 +1,1084 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>C_Language_Basics_08 - 黑马程序员</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="黑马程序员" type="application/atom+xml"> 
+    <link rel="icon" href="/hexo-private-blog-website/img/logo.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    
+<link rel="stylesheet" href="/hexo-private-blog-website/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">黑马程序员</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://shennvfu.github.io/hexo-private-blog-website"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">C_Language_Basics_08</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">C_Language_Basics_08</h1>
+        <div class="stuff">
+            <span>七月 28, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<p>这是一个链接 <a href="http://www.runoob.com/" target="_blank" rel="noopener">菜鸟教程</a></p>
+<h1 id="C语言基础"><a href="#C语言基础" class="headerlink" title="C语言基础"></a>C语言基础</h1><pre><code>一、总结
+已学的：
+    一维数组（定义、赋值、初始化、传参，数组里面每一个元素的控制）
+    二维数组 
+    存储类  
+    指针函数：他是一个函数，函数的返回值类型的指针类型
+    函数指针：他是一个指针，存放函数的地址（通过函数地址解应用（调用函数），回调函数）
+    数组指针：
+
+未学的：
+    函数指针和数组指针的传参
+    指针数组
+    函数：宏定义函数 、递归函数、内联函数、变参函数
+    C语言程序运行时的内存分布（变量的，代码段）
+    结构体：结构体、结构体指针、结构体数组
+    枚举
+    联合体（共用体）</code></pre><p>二、函数指针的传参</p>
+<pre><code>//定义一个可以接受函数指针变量的API
+int Fun_B(int (*f_p)());
+int Fun_A();
+
+int Fun_A()
+{
+    printf(&quot;我是Fun_A\n&quot;);
+    return 0;
+}
+
+int Fun_B(int (*f_p)())
+{
+    (*f_p)();
+    return 0;
+}
+
+int main()
+{
+    //定义一个函数指针变量存放函数的地址
+    int (*f_p)() = 函数的地址；
+    Fun_B(f_p);
+
+    return 0;
+}
+
+
+
+        /*函数指针变量的练习*/
+
+        #include &lt;stdio.h&gt;
+        char Get_Max(char c_a,char c_b);
+        int Working(char (*f_p)(char,char));
+
+        int Working(char (*f_p)(char,char))
+        {
+
+            char ret = (*f_p)(&apos;o&apos;,&apos;o&apos;);
+            if(ret == &apos;\0&apos;)
+            {
+                printf(&quot;两个字符相等！\n&quot;);
+            }
+            else
+            {
+                printf(&quot;大的字符数据是%c\n&quot;,ret);
+            }
+
+            return 0;
+        }
+
+        char Get_Max(char c_a,char c_b)
+        {
+            if(c_a == c_b)
+            {
+                return 0;
+            }
+            else
+            {
+                return (c_a&gt;c_b?c_a:c_b);
+            }
+
+
+        }
+
+
+        int main()
+        {
+
+            char (*f_p)(char,char) = &amp;Get_Max;
+
+            Working(f_p);
+
+            return 0;
+        }
+
+
+
+练习：
+        封装一个函数，实现判断两个字符变量的大小，把大的字符变量返回出来。
+        在定义一个函数指针变量存放上面的函数的地址，在通过函数指针变量
+        解引用调用上面的函数。
+
+
+
+
+        #include &lt;stdio.h&gt;
+
+        int Fun_B(int (*f_p)());
+        int Fun_A();
+
+        int Fun_A()
+        {
+            printf(&quot;我是Fun_A\n&quot;);
+            return 0;
+        }
+
+        int Fun_B(int (*f_p)())
+        {
+            (*f_p)();
+            return 0;
+        }
+
+        int main()
+        {
+            //定义一个函数指针变量存放函数的地址
+            int (*f_p)() = &amp;Fun_A;
+            //(*f_p)();
+            Fun_B(f_p);
+
+            return 0;
+        }
+
+
+
+        /*指针数组的定义。赋值，初始化*/
+
+        #include &lt;stdio.h&gt;
+        #include &lt;stdlib.h&gt;
+
+        int main()
+        {
+            int a =10;
+
+            //int * array[10] = {&amp;a,&amp;a}; 初始化
+            int * array[10];
+            //malloc循环赋值
+
+            for(int n=0; n&lt;10; n++)
+                array[n] = (int *)malloc(sizeof(int));
+
+            //*(array[n]) = 5;
+            for(int n=0; n&lt;10; n++)//循环给指针数组里面每个指针变量赋值数据域
+                **(array+n) = n;//*(array[n]) = n;
+
+
+
+            for(int n=0; n&lt;10; n++)//循环打印指针数组中变量指向的数据域
+                printf(&quot;array[%d] = %d\n&quot;,n,**(array+n));
+
+
+            for(int n=0; n&lt;10; n++)//循环释放内存空间
+                free(*(array+n));
+
+
+
+
+            return 0;
+        }</code></pre><p>三、数组指针的传参</p>
+<pre><code>练习：
+    定义一个整形数组，初始化。
+    把数组的地址存放在一个数组指针变量里面。
+    通过函数的传参，把数组指针变量传给另外一个函数，在这个函数里面对数组指针变量解引用，
+    打印出数组里面的每一个元素数据。
+
+#include &lt;stdio.h&gt;
+
+int Fun(int (*a_p)[]);
+int Fun(int (*a_p)[])
+{
+    for(int n=0; n&lt;4; n++)
+        printf(&quot;%d &quot;,*((*a_p)+n));
+    printf(&quot;\n&quot;);
+
+    for(int n=0; n&lt;4; n++)
+        printf(&quot;%d &quot;,(*a_p)[n]);
+    printf(&quot;\n&quot;);
+
+    return 0;
+}
+
+
+int main()
+{
+    int array[]  = {90,98,78,76};
+    int (*a_p)[] = &amp;array; 
+
+    Fun(a_p); //Fun(&amp;array);
+
+    return 0;
+}
+
+
+
+    /*数组指针传参*/
+
+    #include &lt;stdio.h&gt;
+
+    int Fun(int (*a_p)[]);
+    int Fun(int (*a_p)[])
+    {
+        for(int n=0; n&lt;4; n++)
+            printf(&quot;%d &quot;,*((*a_p)+n));
+        printf(&quot;\n&quot;);
+
+        for(int n=0; n&lt;4; n++)
+            printf(&quot;%d &quot;,(*a_p)[n]);
+        printf(&quot;\n&quot;);
+
+        return 0;
+    }
+
+
+    int main()
+    {
+        int array[]  = {90,98,78,76};
+        int (*a_p)[] = &amp;array; 
+
+        Fun(a_p); //Fun(&amp;array);
+
+        return 0;
+    }</code></pre><p>补充：<br>        给数组指针malloc</p>
+<pre><code>例子：
+    #define M 10
+    int (*a_p)[M] = (int(*)[])malloc(M*sizeof(int));
+    if(a_p == NULL)
+    {
+        perror(&quot;malloc&quot;);
+        return -1;
+    }
+
+检测：
+        数组首元素地址+1，跳多少字节？
+        数组首地址+1，跳多少字节？
+
+
+
+        #include &lt;stdio.h&gt;
+        #include &lt;stdlib.h&gt;
+        #define M 10
+
+        int main()
+        {
+
+            int (*a_p)[M] = (int(*)[])malloc(M*sizeof(int));
+            if(a_p == NULL)
+            {
+                perror(&quot;malloc&quot;);
+                return -1;
+            }
+
+            (*a_p)[2] = 12;
+
+            printf(&quot;%d\n&quot;,*((*a_p)+2));
+            //printf(&quot;%d\n&quot;,*((*a_p)+3));
+            //printf(&quot;%d\n&quot;,*((*a_p)+15));
+            free(a_p);
+
+            return 0;
+        }</code></pre><hr>
+<p>一、指针数组</p>
+<pre><code>指针数组：他是一个数组，用来存放多个指针变量。
+
+整形指针数组，只能存放整形变量的地址。
+
+整形指针数组的定义：
+
+                int *array[10];
+
+整形指针数组的赋值：        
+
+                int a = 10,....;
+                第一个元素 = 整形变量的地址 //给数组中第一个元素赋值一个整形变量的地址
+                array[0] = &amp;a;
+malloc给指针数组申请空间：
+                for(int n=0; n&lt;10; n++)
+                    array[n] = (int *)malloc(sizeof(int));
+
+                ....
+                for(int n=0; n&lt;10; n++)
+                    free(array[n]);
+
+array：    是一个指针数组
+array+1:   指针数组中第二个元素的地址
+*array:    第一个元素存放的数据
+*(array+1):第二个元素存放的数据
+**(array+1):根据第二个元素存放的数据（是一个变量的地址）来解引用
+
+
+
+        /*指针数组的定义。赋值，初始化*/
+
+        #include &lt;stdio.h&gt;
+        #include &lt;stdlib.h&gt;
+
+        int main()
+        {
+            int a =10;
+
+            //int * array[10] = {&amp;a,&amp;a}; 初始化
+            int * array[10];
+            //malloc循环赋值
+
+            for(int n=0; n&lt;10; n++)
+                array[n] = (int *)malloc(sizeof(int));
+
+            //*(array[n]) = 5;
+            for(int n=0; n&lt;10; n++)//循环给指针数组里面每个指针变量赋值数据域
+                **(array+n) = n;//*(array[n]) = n;
+
+
+
+            for(int n=0; n&lt;10; n++)//循环打印指针数组中变量指向的数据域
+                printf(&quot;array[%d] = %d\n&quot;,n,**(array+n));
+
+
+            for(int n=0; n&lt;10; n++)//循环释放内存空间
+                free(*(array+n));
+
+
+
+
+            return 0;
+        }
+
+
+
+        /*指针数组传参*/
+        #include &lt;stdio.h&gt;
+
+        int Fun(char * c_array[]);
+        int Fun(char * c_array[])
+        {
+            for(int n=0; n&lt;10; n++)
+                printf(&quot;%c\n&quot;,*(c_array[n]));
+
+            return 0;
+        }
+
+        int main()
+        {
+            char a = &apos;o&apos;;
+            char * c_array[10] = {&amp;a};
+
+            Fun(c_array);
+
+            return 0;
+        }
+
+
+
+        #include &lt;stdio.h&gt;
+        #include &lt;stdlib.h&gt;
+        /*使用普通的整形二级指针当作函数的形参，*/
+
+        int A(int ** p_1,int ** p_2);
+        int A(int ** p_1,int ** p_2)
+        {
+            //对应指针变量数据域互换
+
+
+            int data;
+            data  = **p_1;
+            **p_1 = **p_2;
+            **p_2 = data;
+
+            return 0;
+        }
+
+
+        int main()
+        {
+
+            int ** p_1 = (int **)malloc(sizeof(int *));
+            int ** p_2 = (int **)malloc(sizeof(int *));
+            int a=1,b=2;
+            int *p_3 = &amp;a;
+            int *p_4 = &amp;b;
+            p_1 = &amp;p_3;
+            p_2 = &amp;p_4;
+
+            printf(&quot;%d---%d\n&quot;,**p_1,**p_2);
+            A(p_1,p_2);
+            printf(&quot;%d---%d\n&quot;,**p_1,**p_2);
+
+
+            return 0;
+        }
+
+
+
+    /*字符指针数组*/
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+    #include &lt;string.h&gt;
+
+    int main()
+    {
+        char * c_array[2];
+        for(int n=0; n&lt;2; n++)
+            c_array[n] = (char *)malloc(5*sizeof(char));
+
+        /*
+        *(c_array[0]) = &apos;a&apos;;
+        *(c_array[0]+1) = &apos;b&apos;;
+        *(c_array[0]+2) = &apos;c&apos;;
+        */
+        strcpy(c_array[0],&quot;hello&quot;);
+        strcpy(c_array[1],&quot;world&quot;);
+
+        printf(&quot;%s\n&quot;,c_array[0]);
+        printf(&quot;%s\n&quot;,c_array[1]);
+
+        /*
+        for(int n=0; n&lt;10; n++)
+            **(c_array+n) = &apos;o&apos;;
+
+        for(int n=0; n&lt;10; n++)
+            printf(&quot;%c\n&quot;,**(c_array+n));
+
+        for(int n=0; n&lt;10; n++)
+            printf(&quot;%p----%p\n&quot;,c_array+n,*(c_array+n));
+                           //元素本身的地址      元素存放的地址（你malloc出来的地址）
+
+        */
+        for(int n=0; n&lt;2; n++)
+            free(*(c_array+n));
+
+        return 0;
+    }</code></pre><p>补充：字符指针数组与二维数组类似</p>
+<pre><code>练习：
+
+    定义一个字符指针数组，然后用malloc给其赋值。
+    把helloworld放在malloc申请的来的地址上面的数据域。
+
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+
+    int main()
+    {
+        char * c_array[10];
+        for(int n=0; n&lt;10; n++)
+            array[n] = (char *)malloc(sizeof(char));
+
+        for(int n=0; n&lt;10; n++)
+            **(array+n) = &apos;o&apos;;
+
+        for(int n=0; n&lt;10; n++)
+            printf(&quot;%c\n&quot;,**(array+n));
+
+        for(int n=0; n&lt;10; n++)
+            free(*(array+n));
+
+        return 0;
+    }
+
+注意：
+    打印指针数组里面每一个元素的地址，和他们各自存放的地址。
+
+例子：
+        根据刚刚申请九宫格的malloc，自己申请一个5*2的结构，第一列存放hellio
+        第二列存放world
+
+指针数组传参
+
+        #include &lt;stdio.h&gt;
+
+        int Fun(char * c_array[]);
+        int Fun(char * c_array[])
+        {
+            printf(&quot;%ld\n&quot;,sizeof(c_array));
+
+            return 0;
+        }
+
+        int main()
+        {
+            char * c_array[10];
+            Fun(c_array);
+
+            return 0;
+        }
+
+
+
+        /*指针数组传参*/
+        #include &lt;stdio.h&gt;
+
+        int Fun(char * c_array[]);
+        int Fun(char * c_array[])
+        {
+            for(int n=0; n&lt;10; n++)
+                printf(&quot;%c\n&quot;,*(c_array[n]));
+
+            return 0;
+        }
+
+        int main()
+        {
+            char a = &apos;o&apos;;
+            char * c_array[10] = {&amp;a};
+
+            Fun(c_array);
+
+            return 0;
+        }
+
+
+void*的使用：
+            人性化的考虑，给调用者使用任意一种任意类型
+
+            void * A(void * data);
+            void * A(void * data)
+            {
+                int * new_p = (int *)data;
+                printf(&quot;%d\n&quot;,*new_p);
+
+                return NULL;
+            }
+
+            int main()
+            {
+                int a = 11;
+
+                A((void *)&amp;a);
+
+                return 0;
+            }
+
+
+
+        #include &lt;stdio.h&gt;
+
+        void * A(void * data);
+        void * A(void * data)
+        {
+            int * new_p = (int *)data;
+            printf(&quot;%d\n&quot;,*new_p);
+            //printf(&quot;%d\n&quot;,*((int *)data));
+            //printf(&quot;%d\n&quot;,*data);
+
+            return (void *)new_p;
+        }
+
+        int main()
+        {
+            int a = 11;
+
+
+            int * p = (int *)A((void *)&amp;a);
+            printf(&quot;%d\n&quot;,*p);
+
+
+            return 0;
+        }
+
+
+
+普通的二级指针：
+            int a=0;
+            int *b = &amp;a;  printf(&quot;%d\n&quot;,*b);
+            int **c = &amp;b; printf(&quot;%d\n&quot;,**c);
+
+
+
+
+        #include &lt;stdio.h&gt;
+        #include &lt;stdlib.h&gt;
+        /*使用普通的整形二级指针当作函数的形参，*/
+
+        int A(int ** p_1,int ** p_2);
+        int A(int ** p_1,int ** p_2)
+        {
+            //对应指针变量数据域互换
+
+
+            int data;
+            data  = **p_1;
+            **p_1 = **p_2;
+            **p_2 = data;
+
+            return 0;
+        }
+
+
+        int main()
+        {
+
+            int ** p_1 = (int **)malloc(sizeof(int *));
+            int ** p_2 = (int **)malloc(sizeof(int *));
+            int a=1,b=2;
+            int *p_3 = &amp;a;
+            int *p_4 = &amp;b;
+            p_1 = &amp;p_3;
+            p_2 = &amp;p_4;
+
+            printf(&quot;%d---%d\n&quot;,**p_1,**p_2);
+            A(p_1,p_2);
+            printf(&quot;%d---%d\n&quot;,**p_1,**p_2);
+
+
+            return 0;
+        }
+
+
+
+
+    /*函数指针变量的练习*/
+
+    #include &lt;stdio.h&gt;
+    char Get_Max(char c_a,char c_b);
+    int Working(char (*f_p)(char,char));
+
+    int Working(char (*f_p)(char,char))
+    {
+
+        char ret = (*f_p)(&apos;o&apos;,&apos;o&apos;);
+        if(ret == &apos;\0&apos;)
+        {
+            printf(&quot;两个字符相等！\n&quot;);
+        }
+        else
+        {
+            printf(&quot;大的字符数据是%c\n&quot;,ret);
+        }
+
+        return 0;
+    }
+
+    char Get_Max(char c_a,char c_b)
+    {
+        if(c_a == c_b)
+        {
+            return 0;
+        }
+        else
+        {
+            return (c_a&gt;c_b?c_a:c_b);
+        }
+
+
+    }
+
+
+    int main()
+    {
+
+        char (*f_p)(char,char) = &amp;Get_Max;
+
+        Working(f_p);
+
+        return 0;
+    }
+
+
+    /*字符指针数组*/
+    #include &lt;stdio.h&gt;
+    #include &lt;stdlib.h&gt;
+    #include &lt;string.h&gt;
+
+    int main()
+    {
+        char * c_array[2];
+        for(int n=0; n&lt;2; n++)
+            c_array[n] = (char *)malloc(5*sizeof(char));
+
+        /*
+        *(c_array[0]) = &apos;a&apos;;   // 字符指针数组与二维数组类似
+        *(c_array[0]+1) = &apos;b&apos;;
+        *(c_array[0]+2) = &apos;c&apos;;
+        */
+        strcpy(c_array[0],&quot;hello&quot;);
+        strcpy(c_array[1],&quot;world&quot;);
+
+        printf(&quot;%s\n&quot;,c_array[0]);
+        printf(&quot;%s\n&quot;,c_array[1]);
+
+        /*
+        for(int n=0; n&lt;10; n++)
+            **(c_array+n) = &apos;o&apos;;
+
+        for(int n=0; n&lt;10; n++)
+            printf(&quot;%c\n&quot;,**(c_array+n));
+
+        for(int n=0; n&lt;10; n++)
+            printf(&quot;%p----%p\n&quot;,c_array+n,*(c_array+n));
+                           //元素本身的地址      元素存放的地址（你malloc出来的地址）
+
+        */
+        for(int n=0; n&lt;2; n++)
+            free(*(c_array+n));
+
+        return 0;
+    }
+
+
+
+        /*指针数组传参*/
+        #include &lt;stdio.h&gt;
+
+        int Fun(char * c_array[]);
+        int Fun(char * c_array[])
+        {
+            for(int n=0; n&lt;10; n++)
+                printf(&quot;%c\n&quot;,*(c_array[n]));
+
+            return 0;
+        }
+
+        int main()
+        {
+            char a = &apos;o&apos;;
+            char * c_array[10] = {&amp;a};
+
+            Fun(c_array);
+
+            return 0;
+        }
+
+
+
+        #include &lt;stdio.h&gt;
+
+        void * A(void * data);
+        void * A(void * data)
+        {
+            int * new_p = (int *)data;
+            printf(&quot;%d\n&quot;,*new_p);
+            //printf(&quot;%d\n&quot;,*((int *)data));
+            //printf(&quot;%d\n&quot;,*data);
+
+            return (void *)new_p;
+        }
+
+        int main()
+        {
+            int a = 11;
+
+
+            int * p = (int *)A((void *)&amp;a);
+            printf(&quot;%d\n&quot;,*p);
+
+
+            return 0;
+        }</code></pre><p>作业：<br>    根据最后一个练习，把malloc申请成一级指针的类型空间，来实现原有的程序功能</p>
+<pre><code>1.根据最后一个练习，把malloc申请成一级指针的类型空间，来实现原有的程序功能。
+答：
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int Fun(int **a_2,int **b_2);
+
+int Fun(int **a_2,int **b_2)
+{
+    int data;
+    data = **a_2;
+    **a_2 = **b_2;
+    **b_2 = data;
+
+    return 0;
+}
+
+int main()
+{
+    int a = 11,b = 12;
+
+    int *a_1 = (int *)malloc(sizeof(int));
+    int *b_1 = (int *)malloc(sizeof(int));
+
+    a_1 = &amp;a;
+    b_1 = &amp;b;
+
+    int **a_2 = &amp;a_1;
+    int **b_2 = &amp;b_1;
+
+    printf(&quot;互换前：%d---%d\n&quot;,**a_2,**b_2);
+    Fun(a_2,b_2);
+    printf(&quot;互换后：%d---%d\n&quot;,**a_2,**b_2);
+
+    return 0;    
+}
+
+
+
+1、根据最后一个练习，把malloc申请成一级指针的类型空间，来实现原有的程序功能
+答：
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int swp_func(int **p_1, int **p_2);
+
+int swp_func(int **p_1, int **p_2)  //交换数据
+{
+    int tem_data;
+    tem_data  = **p_1;
+    **p_1 = **p_2;
+    **p_2 = tem_data;
+
+    return 0;
+}
+
+int main()
+{
+    int a = 1, b = 2;
+    int *temp_p1 = (int *)malloc(sizeof(int));  //一级指针创建4个字节空间
+    int *temp_p2 = (int *)malloc(sizeof(int));
+    int **p_1, **p_2;
+    int *protect_p1, *protect_p2;
+
+    protect_p1 = temp_p1;  //保护指针变量首地址
+    protect_p2 = temp_p2;
+
+    temp_p1 = &amp;a;    //一级指针到二级指针的赋值
+    temp_p2 = &amp;b;
+    p_1 = &amp;temp_p1;
+    p_2 = &amp;temp_p2;
+
+    printf(&quot;交换之前：%d---%d\n&quot;,**p_1,**p_2);
+
+    swp_func(p_1, p_2);  //交换数据
+
+    printf(&quot;交换之后：%d---%d\n&quot;,**p_1,**p_2);
+
+    free(protect_p1);  //释放空间
+    free(protect_p2);
+
+    return 0;
+}
+
+
+
+根据最后一个练习，把malloc申请成一级指针的类型空间，来实现原有的程序功能
+#include &quot;stdio.h&quot;
+#include &quot;stdlib.h&quot;
+
+int fun_pointer(int **second_pointer_parameter_1,int **second_pointer_parameter_2); //函数的声明
+
+int fun_pointer(int **second_pointer_parameter_1,int **second_pointer_parameter_2)
+{
+    int num;
+    num = **second_pointer_parameter_1;
+    **second_pointer_parameter_1 = **second_pointer_parameter_2;
+    **second_pointer_parameter_2 = num;
+
+    //printf(&quot;%d-------%d\n&quot;, **second_pointer_parameter_1,**second_pointer_parameter_2);
+
+    return 0;
+}
+
+int main(int argc, char const *argv[])
+{
+    int *pointer_1 = (int *)malloc(sizeof(int));
+    int *pointer_2 = (int *)malloc(sizeof(int));
+
+    int *pointer_3 = pointer_1;  // 备份首地址
+    int *pointer_4 = pointer_2;
+
+    int a=12,b=13;
+    pointer_1 = &amp;a; // pointer_1 首地址已经改变
+    pointer_2 = &amp;b;
+
+    int **second_pointer_1 = &amp;pointer_1;
+    int **second_pointer_2 = &amp;pointer_2;
+
+    printf(&quot;未交换之前的数据:%d%5d\n&quot;, **second_pointer_1,**second_pointer_2);
+
+    fun_pointer(second_pointer_1,second_pointer_2);
+    //fun_pointer(&amp;pointer_1,&amp;pointer_2);
+
+    printf(&quot;交换之后的数据:%d%5d\n&quot;, **second_pointer_1,**second_pointer_2);
+
+    free(pointer_3); 
+    free(pointer_4);
+
+    return 0;
+}</code></pre><h3 id="指针数组"><a href="#指针数组" class="headerlink" title="指针数组:"></a>指针数组:</h3><p><img src="/hexo-private-blog-website/images/%E6%95%B4%E5%9E%8B%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84.bmp" alt=""><br><img src="/hexo-private-blog-website/images/%E5%AD%97%E7%AC%A6%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84.bmp" alt=""></p>
+<h3 id="支付宝付款"><a href="#支付宝付款" class="headerlink" title="支付宝付款:"></a>支付宝付款:</h3><p><img src="/hexo-private-blog-website/images/alipay.jpg" alt=""></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/25727660.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/1436910205.mp3'></li>
+                        
+                    
+                        
+                            <li title='2' data-url='http://link.hhtjim.com/163/1439111141.mp3'></li>
+                        
+                    
+                        
+                            <li title='3' data-url='http://link.hhtjim.com/163/1442842748.mp3'></li>
+                        
+                    
+                        
+                            <li title='4' data-url='http://link.hhtjim.com/163/1422992414.mp3'></li>
+                        
+                    
+                        
+                            <li title='5' data-url='http://link.hhtjim.com/163/1434057772.mp3'></li>
+                        
+                    
+                        
+                            <li title='6' data-url='http://link.hhtjim.com/163/1429908253.mp3'></li>
+                        
+                    
+                        
+                            <li title='7' data-url='http://link.hhtjim.com/163/1432428744.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='true'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/hexo-private-blog-website/js/plugin.js"></script>
+<script src="/hexo-private-blog-website/js/typed.js"></script>
+<script src="/hexo-private-blog-website/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/hexo-private-blog-website/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/hexo-private-blog-website/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/hexo-private-blog-website/photoswipe/photoswipe.min.js"></script>
+<script src="/hexo-private-blog-website/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

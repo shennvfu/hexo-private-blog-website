@@ -63,8 +63,13 @@
         </div>
         <div class="content markdown">
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h1 id="C语言基础"><a href="#C语言基础" class="headerlink" title="C语言基础"></a>C语言基础</h1><p>  1.1 刷新输入输出缓存区的API<br>      fflush:<br>          头文件：#include &lt;stdio.h&gt;<br>          原型：<br>          int fflush(FILE *stream);</p>
-<pre><code>      int:
+<h1 id="C语言基础"><a href="#C语言基础" class="headerlink" title="C语言基础"></a>C语言基础</h1><pre><code>  1.1 刷新输入输出缓存区的API
+  fflush:
+      头文件：#include &lt;stdio.h&gt;
+      原型：
+      int fflush(FILE *stream);
+
+      int:
           返回值0成功
       stream：
             文件流指针，存指定的文件指针就可刷新对应的缓存区
@@ -270,10 +275,13 @@ int main()
         高精度--&gt; 低精度（数据会丢失）
 
         int a = 10;
-        printf(&quot;%f\n&quot;,(flaot)a);  //为了避免报警告，吧a的类型转成float的类型</code></pre><p>======================================================================================================<br>一、运算符</p>
-<p>  注：运算符的优先级（找一下对应图片）</p>
-<p>  1.1 算数运算符   + - * / % ++ –</p>
-<pre><code>例子：
+        printf(&quot;%f\n&quot;,(flaot)a);  //为了避免报警告，吧a的类型转成float的类型</code></pre><p>======================================================================================================<br>  一、运算符</p>
+<pre><code>注：运算符的优先级（找一下对应图片）
+
+
+1.1 算数运算符   + - * / % ++ --
+
+例子：
 
     1:键盘输入一个数（不是个位数），把这个数的每一位单独打印出来 189
       9 8 1
@@ -493,255 +501,310 @@ int main()
 
   return 0;
 }</code></pre><p>二、控制流语句</p>
-<p>  九个：<br>      if</p>
-<pre><code>for
+<pre><code>九个：
+  if
 
-while()
+  for
 
-do
-{
+  while()
 
-}while(1) //至少会执行一次
+  do
+  {
 
-例子：写一份do whille的示例代码
+  }while(1) //至少会执行一次
 
-switch(数)
-{
-  case 1 :执行语句
-  case 2 :
-  。。。。
-  default :
+  例子：写一份do whille的示例代码
 
-}
+  switch(数)
+  {
+    case 1 :执行语句
+    case 2 :
+    。。。。
+    default :
 
-break:一定要和循环体结合在一起，退出当前的循环体
+  }
+
+  break:一定要和循环体结合在一起，退出当前的循环体
+
+    while(1)
+    {
+      for(; ; )
+      {
+        break;  //至跳出for
+      }
+      break;
+    }
+
+  continue:取消本次循环，进入下一次循环
 
   while(1)
   {
-    for(; ; )
-    {
-      break;  //至跳出for
-    }
-    break;
+    continue;
+    printf(&quot;hello world!\n&quot;);
   }
 
-continue:取消本次循环，进入下一次循环
+  return  :无条件退出当前的函数
 
-while(1)
-{
-  continue;
-  printf(&quot;hello world!\n&quot;);
-}
+  int main()
+  {
 
-return  :无条件退出当前的函数
+    return 0;
+    printf(&quot;hello world!\n&quot;);
+  }
 
-int main()
-{
+  goto:
+      要有条件的执行goto ()
+      要退出goto的时候
 
-  return 0;
-  printf(&quot;hello world!\n&quot;);
-}
-
-goto:
-    要有条件的执行goto ()
-    要退出goto的时候
-
-用法：
-  int a = 4;
+  用法：
+    int a = 4;
 
 
-  loop:
+    loop:
 
-      printf(&quot;hello world\n&quot;);
+        printf(&quot;hello world\n&quot;);
 
-  goto loop;
+    goto loop;
 
 
-  goto用法:
+    goto用法:
+
+    #include &lt;stdio.h&gt;
+
+    int main()
+    {
+      int a = 10;
+
+      if(a != 10)
+      {
+        mask:
+          printf(&quot;%d\n&quot;,a);
+          return 0;
+      }
+
+      loop:
+        a++;
+        if(a == 20)
+          goto mask;
+      goto loop;
+
+
+      return 0;
+    }
+
 
   #include &lt;stdio.h&gt;
 
   int main()
   {
-    int a = 10;
+      int a = 11;
 
-    if(a != 10)
-    {
-      mask:
-        printf(&quot;%d\n&quot;,a);
-        return 0;
-    }
-
-    loop:
-      a++;
-      if(a == 20)
-        goto mask;
-    goto loop;
-
+      while(1)
+      {
+        printf(&quot;输入一个数&quot;);
+        scanf(&quot;%d&quot;,&amp;a);
+        while(getchar()!=&apos;\n&apos;);
+        switch (a)
+        {
+          case 10: a++;break;
+          case 11: a--;
+          case 12: a=11;break;
+          default: printf(&quot;其他情况\n&quot;);break;
+        }
+        printf(&quot;a = %d\n&quot;,a);//-----11
+        //如果符合条件的那个case没有break,那么会按顺序执行下面case,直到遇到break
+      }
 
     return 0;
   }
 
 
-#include &lt;stdio.h&gt;
-
-int main()
-{
-    int a = 11;
-
-    while(1)
-    {
-      printf(&quot;输入一个数&quot;);
-      scanf(&quot;%d&quot;,&amp;a);
-      while(getchar()!=&apos;\n&apos;);
-      switch (a)
-      {
-        case 10: a++;break;
-        case 11: a--;
-        case 12: a=11;break;
-        default: printf(&quot;其他情况\n&quot;);break;
-      }
-      printf(&quot;a = %d\n&quot;,a);//-----11
-      //如果符合条件的那个case没有break,那么会按顺序执行下面case,直到遇到break
-    }
-
-  return 0;
-}
+  #include &lt;stdio.h&gt;
 
 
-#include &lt;stdio.h&gt;
-
-
-int main()
-{
-  int a = 4;
-
-  //打印a的地址
-  printf(&quot;%p\n&quot;,&amp;a);
-  //0x7ffe43cc7764
-
-  char b = &apos;S&apos;;
-  printf(&quot;%p\n&quot;,b);
-
-  return 0;
-}
-
-
-#include &lt;stdio.h&gt;
-
-int main()
-{
-
-        int a = 2;
-        int b = 3;
-
-        int d = a&gt;b?a:b; //d等于3
-        a&gt;b?printf(&quot;a&gt;b&quot;):printf(&quot;a&lt;b&quot;);
-
-        return 0;
-
-}</code></pre><p>  练习：</p>
-<pre><code>键盘输入一个数（能持续输入），判断这个数是否能被5整除，如果不能把这个数递增知道变成能被5整除的数。
-
-
-#include &lt;stdio.h&gt;
-
-int main()
-{
-  //什么数就可以被5整除 个位数时0或者5的数  11 --&gt;15  17 --&gt;20  14 --&gt;15
-  int data;
-  while(1)
+  int main()
   {
-    printf(&quot;请输入一个数&quot;);
-    scanf(&quot;%d&quot;,&amp;data);
-    while(getchar()!=&apos;\n&apos;);
-    if(data %5 == 0)
-    {
-      printf(&quot;%d能被5整除\n&quot;,data);
-    }
-    else
-    {
-      printf(&quot;%d不能被5整除，需要加%d才可以被整除\n&quot;,data,5-(data%5));
-    }
+    int a = 4;
+
+    //打印a的地址
+    printf(&quot;%p\n&quot;,&amp;a);
+    //0x7ffe43cc7764
+
+    char b = &apos;S&apos;;
+    printf(&quot;%p\n&quot;,b);
+
+    return 0;
   }
 
+
+  #include &lt;stdio.h&gt;
+
+  int main()
+  {
+
+          int a = 2;
+          int b = 3;
+
+          int d = a&gt;b?a:b; //d等于3
+          a&gt;b?printf(&quot;a&gt;b&quot;):printf(&quot;a&lt;b&quot;);
+
+          return 0;
+
+  }</code></pre><p>  练习：</p>
+<pre><code>  键盘输入一个数（能持续输入），判断这个数是否能被5整除，如果不能把这个数递增知道变成能被5整除的数。
+
+
+  #include &lt;stdio.h&gt;
+
+  int main()
+  {
+    //什么数就可以被5整除 个位数时0或者5的数  11 --&gt;15  17 --&gt;20  14 --&gt;15
+    int data;
+    while(1)
+    {
+      printf(&quot;请输入一个数&quot;);
+      scanf(&quot;%d&quot;,&amp;data);
+      while(getchar()!=&apos;\n&apos;);
+      if(data %5 == 0)
+      {
+        printf(&quot;%d能被5整除\n&quot;,data);
+      }
+      else
+      {
+        printf(&quot;%d不能被5整除，需要加%d才可以被整除\n&quot;,data,5-(data%5));
+      }
+    }
+
+    return 0;
+  }
+
+  一、单项选择题
+
+  1、表达式 1? (0?3: 2): (10?1: 0)  的值是（A）。
+
+  A)2     B)  3      C)   1     D） 0
+
+  2、以下代码执行完毕后，i的值为（A）。
+
+  A)0      B)  11      C)10     D)出错
+
+  3、定义int a=3,b=6;，则表达式 int c = (a ^ b)&lt;&lt;2中,c的二进制值是（D）。
+
+  A)00011100    B)00000111    C）00000001   D）00010100
+
+    4、在while(!a)中，其中!a与表达式（A）等价。
+  A）a==0      B）a==1       C）a!=1       D）a!=0
+
+  5、int a,i=2;  if(a=i++ != 4),该判断语句结果为（A）
+
+  A）真     B）假   C)语法有误  D）其他
+
+  编程题：
+
+  1、编写一个程序，此程序要求输入天数，然后将该值转换为星期数和天数。例如：
+  输入：18天
+  输出：2星期 + 4天
+  #include &lt;stdio.h&gt;
+
+  int main(void)
+  {
+    int day;
+    int week;
+    int data;
+    while(1)
+  { 
+    printf(“请输入天数:”);
+    scanf(“%d”,&amp;day);
+    week = day/7;
+    data = day%7;
+    printf(“%d星期+%d天\n”,week,data);
+    break;
+  }
   return 0;
-}
+  }
 
-一、单项选择题
 
-1、表达式 1? (0?3: 2): (10?1: 0)  的值是（A）。
 
-A)2     B)  3      C)   1     D） 0
+  2、从键盘输入10个数，统计非负数的个数，并计算非负数的和。
+   #include &lt;stdio.h&gt;
+   int main(void)
+   {
+    int num[10];
+    int sum=0;
+    int a=0;
+    while(1)
+  {
+  printf(“请输入10个数:\n”);
+  for(int i=0;i&lt;10;i++)
+  {
+    scanf(“%d”,&amp;num[i]);
+    while(getchar() != ‘\n’);
+  if(num[i] &gt;=0)
+  {
+    a++;
+    sum += num[i];
+  }
+      }
+  prinf(“非负数的个数为%d,非负数的和为%d\n”,a,sum);
 
-2、以下代码执行完毕后，i的值为（A）。
+  return 0;
+  }
 
-A)0      B)  11      C)10     D)出错
+  计算22左移3位的最后结果
+  22(D)=10110(B)  &lt;&lt;3-----&gt;10110000(B) = 176(D)
 
-3、定义int a=3,b=6;，则表达式 int c = (a ^ b)&lt;&lt;2中,c的二进制值是（D）。
 
-A)00011100    B)00000111    C）00000001   D）00010100
+一、 单项选择题：1、A    2、B    3、D    4、B    5、C
 
-  4、在while(!a)中，其中!a与表达式（A）等价。
-A）a==0      B）a==1       C）a!=1       D）a!=0
-
-5、int a,i=2;  if(a=i++ != 4),该判断语句结果为（A）
-
-A）真     B）假   C)语法有误  D）其他
-
-编程题：
-
-1、编写一个程序，此程序要求输入天数，然后将该值转换为星期数和天数。例如：
-输入：18天
-输出：2星期 + 4天
+二、编程题：
+1、
 #include &lt;stdio.h&gt;
 
-int main(void)
+int main()
 {
-  int day;
-  int week;
-  int data;
-  while(1)
-{ 
-  printf(“请输入天数:”);
-  scanf(“%d”,&amp;day);
-  week = day/7;
-  data = day%7;
-  printf(“%d星期+%d天\n”,week,data);
-  break;
-}
-return 0;
+    int day;
+
+    printf(&quot;输入：&quot;);
+    scanf(&quot;%d&quot;, &amp;day);         //输入天数
+    while(getchar() != &apos;\n&apos;);
+
+    printf(&quot;输出：&quot;);
+    printf(&quot; %d 星期 + %d 天\n&quot;, day/7, 7 - day % 7);  //输出星期、剩余天数
+
+   return 0;
 }
 
+2、
+#include &lt;stdio.h&gt;
 
+int main()
+{
+    int buf[10], i, count = 0, sum = 0;
 
-2、从键盘输入10个数，统计非负数的个数，并计算非负数的和。
- #include &lt;stdio.h&gt;
- int main(void)
- {
-  int num[10];
-  int sum=0;
-  int a=0;
-  while(1)
-{
-printf(“请输入10个数:\n”);
-for(int i=0;i&lt;10;i++)
-{
-  scanf(“%d”,&amp;num[i]);
-  while(getchar() != ‘\n’);
-if(num[i] &gt;=0)
-{
-  a++;
-  sum += num[i];
-}
+    /*输入10个数据*/
+    for(i = 0; i &lt; 10; i++)
+    {
+        scanf(&quot;%d&quot;, &amp;buf[i]);
     }
-prinf(“非负数的个数为%d,非负数的和为%d\n”,a,sum);
 
-return 0;
+    /*输出非负数个数和非负数之和*/
+    for(i = 0; i &lt; 10; i++)
+    {
+        if(buf[i] &gt;= 0)
+        {
+            count++;       //个数
+            sum += buf[i];  //之和
+        }
+    }
+
+    printf(&quot;非负数个数：%d\n&quot;, count);
+    printf(&quot;非负数之和：%d\n&quot;, sum);
+
+    return 0;
 }
 
-计算22左移3位的最后结果
-22(D)=10110(B)  &lt;&lt;3-----&gt;10110000(B) = 176(D)</code></pre><h3 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h3><p><img src="/hexo-private-blog-website/images/%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt=""></p>
+三、计算22左移3位的最后结果
+答：22 * 2^3 = 176</code></pre><h3 id="自动类型转换"><a href="#自动类型转换" class="headerlink" title="自动类型转换"></a>自动类型转换</h3><p><img src="/hexo-private-blog-website/images/%E8%87%AA%E5%8A%A8%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2.png" alt=""></p>
 <h3 id="支付宝付款"><a href="#支付宝付款" class="headerlink" title="支付宝付款:"></a>支付宝付款:</h3><p><img src="/hexo-private-blog-website/images/alipay.jpg" alt=""></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
