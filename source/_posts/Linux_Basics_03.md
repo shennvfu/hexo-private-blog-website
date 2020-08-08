@@ -4,8 +4,8 @@ date: 2020-08-03 08:35:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-万壑有声含晚籁，数峰无语立斜阳。
-棠梨叶落胭脂色，荞麦花开白雪香。
+一枝红艳露凝香，云雨巫山枉断肠。
+借问汉宫谁得似，可怜飞燕倚新妆。
 
 这是一个链接 [菜鸟教程][Runoob]
 

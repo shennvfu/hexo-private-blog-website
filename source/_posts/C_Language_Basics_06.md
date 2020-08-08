@@ -4,6 +4,8 @@ date: 2020-07-27 15:31:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
+山外青山楼外楼，西湖歌舞几时休。
+暖风熏得游人醉，直把杭州作汴州。
 
 这是一个链接 [菜鸟教程][Runoob]
 

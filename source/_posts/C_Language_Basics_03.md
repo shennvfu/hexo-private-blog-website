@@ -4,6 +4,13 @@ date: 2020-07-26 11:53:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
+青青河畔草，绵绵思远道。
+远道不可思，宿昔梦见之。
+
+这是一个链接 [菜鸟教程][Runoob]
+
+[Runoob]: http://www.runoob.com/
+
 # C语言基础
       1.1 刷新输入输出缓存区的API
       fflush:

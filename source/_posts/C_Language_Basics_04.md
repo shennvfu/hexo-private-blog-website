@@ -4,6 +4,13 @@ date: 2020-07-27 14:32:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
+望门投止思张俭，忍死须臾待杜根。
+我自横刀向天笑，去留肝胆两昆仑。
+
+这是一个链接 [菜鸟教程][Runoob]
+
+[Runoob]: http://www.runoob.com/
+
 # C语言基础
 一、函数
 

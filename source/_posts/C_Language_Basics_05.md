@@ -4,6 +4,8 @@ date: 2020-07-27 14:32:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
+五湖春梦扁舟雨，万里秋风两鬓蓬。
+远志出山成小草，神鱼失水困沙虫。
 
 这是一个链接 [菜鸟教程][Runoob]
 

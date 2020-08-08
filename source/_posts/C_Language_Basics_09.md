@@ -4,6 +4,9 @@ date: 2020-07-29 09:21:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
+桃李春风一杯酒，江湖夜雨十年灯。
+想得读书头已白，隔溪猿哭瘴溪藤。
+
 这是一个链接 [菜鸟教程][Runoob]
 
 [Runoob]: http://www.runoob.com/

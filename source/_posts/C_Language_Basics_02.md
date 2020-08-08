@@ -5,6 +5,13 @@ date: 2020-07-26 10:53:18
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
+青青河畔草，郁郁园中柳。
+盈盈楼上女，皎皎当窗牖。
+
+这是一个链接 [菜鸟教程][Runoob]
+
+[Runoob]: http://www.runoob.com/
+
 # 一、Linux系统基本操作
   1.1 背景
 

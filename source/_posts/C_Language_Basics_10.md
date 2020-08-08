@@ -4,6 +4,9 @@ date: 2020-07-30 011:11:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
+人生到处知何似，应似飞鸿踏雪泥。
+泥上偶然留指爪，鸿飞那复计东西。
+
 这是一个链接 [菜鸟教程][Runoob]
 
 [Runoob]: http://www.runoob.com/
