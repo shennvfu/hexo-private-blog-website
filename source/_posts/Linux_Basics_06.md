@@ -4,8 +4,8 @@ date: 2020-08-06 15:45:23
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-万壑有声含晚籁，数峰无语立斜阳。
-棠梨叶落胭脂色，荞麦花开白雪香。
+寥落古行宫，宫花寂寞红。
+白头宫女在，闲坐说玄宗。
 
 [Linux命令手册][Linux]
 
