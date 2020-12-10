@@ -461,3 +461,25 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 	基数排序基于分别排序，分别收集，所以是稳定的。但基数排序的性能比桶排序要略差，每一次关键字的桶分配都需要O(n)的时间复杂度，而且分配之后得到新的关键字序列又需要O(n)的时间复杂度。假如待排数据可以分为d个关键字，则基数排序的时间复杂度将是O(d*2n) ，当然d要远远小于n，因此基本上还是线性级别的。
 
 	基数排序的空间复杂度为O(n+k)，其中k为桶的数量。一般来说n>>k，因此额外空间需要大概n个左右。
+
+
+### 省钱利器：
+![](/hexo-private-blog-website/images/淘宝客.jpg)
+![](/hexo-private-blog-website/images/淘宝客1.jpg)
+![](/hexo-private-blog-website/images/淘宝客2.jpg)
+
+### 内存分布：
+![](/hexo-private-blog-website/images/内存分布.bmp)
+![](/hexo-private-blog-website/images/内存分布.png)
+### 指针数组:
+![](/hexo-private-blog-website/images/整型指针数组.bmp)
+![](/hexo-private-blog-website/images/字符指针数组.bmp)
+### 二维数组:
+![](/hexo-private-blog-website/images/二维数组.png)
+![](/hexo-private-blog-website/images/二维数组1.png)
+### 支付宝打赏:
+![](/hexo-private-blog-website/images/alipay.jpg)
+### 微信打赏:
+![wechat.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggvv58jjj30u010sgnq.jpg)
+### 财付通打赏：
+![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)

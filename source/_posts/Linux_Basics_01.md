@@ -4,18 +4,26 @@ date: 2020-08-01 11:15:13
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-万壑有声含晚籁，数峰无语立斜阳。
-棠梨叶落胭脂色，荞麦花开白雪香。
+	万壑有声含晚籁，数峰无语立斜阳。
+	棠梨叶落胭脂色，荞麦花开白雪香。
 
-这是一个链接 [菜鸟教程][Runoob]
+[Linux命令手册][Linux]
+
+[Linux]: https://man.linuxde.net/
+
+[阿里云][aliyun]
+
+[aliyun]: http://www.aliyun.com
+
+[菜鸟教程][Runoob]
 
 [Runoob]: http://www.runoob.com/
 
-百度 [百度][Baidu]
+[百度][Baidu]
 
 [Baidu]: http://www.baidu.com
 
-谷歌 [Google][Google]
+[Google][Google]
 
 [Google]: http://google.com.hk
 
@@ -371,6 +379,12 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 		4、将 SD 卡插到开发板的 SD0 卡槽，打开开发板电源，这时系统将会自动升级。等待数秒 后，开发板会自动进行烧写。烧写完毕将会自动重启，进入 Linux 系统。 
 		说明：默认 uboot 会自动判断 SD 卡的 gec-Linux 目录中的映像文件是否有更新，一旦发现 映像和烧写到开发板上的不同，则会自动更新映像，否则不会再次更新；如果需要强制进入升级模式，开机上电时按住返回键（K2，调试串口中会打印 force update）即可重新进入 SD 卡 烧写模式，开始自动烧写。
 
+## 省钱利器：
+![](/hexo-private-blog-website/images/淘宝客22.jpg)
+![](/hexo-private-blog-website/images/淘宝客23.jpg)
+![](/hexo-private-blog-website/images/淘宝客24.jpg)
+
+
 ### 内存分布：
 ![](/hexo-private-blog-website/images/内存分布.bmp)
 ![](/hexo-private-blog-website/images/内存分布.png)
@@ -383,6 +397,6 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 ### 支付宝打赏:
 ![](/hexo-private-blog-website/images/alipay.jpg)
 ### 微信打赏:
-![wechat.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggvv58jjj30u010sgnq.jpg)
+![](/hexo-private-blog-website/images/wechat.jpg)
 ### 财付通打赏：
 ![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)

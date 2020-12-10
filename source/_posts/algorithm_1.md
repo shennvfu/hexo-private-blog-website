@@ -497,3 +497,25 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
 	基数排序的空间复杂度为O(n+k)，其中k为桶的数量。一般来说n>>k，因此额外空间需要大概n个左右。
 
+
+
+### 省钱利器：
+![](/hexo-private-blog-website/images/淘宝客4.jpg)
+![](/hexo-private-blog-website/images/淘宝客5.jpg)
+![](/hexo-private-blog-website/images/淘宝客6.jpg)
+
+### 内存分布：
+![](/hexo-private-blog-website/images/内存分布.bmp)
+![](/hexo-private-blog-website/images/内存分布.png)
+### 指针数组:
+![](/hexo-private-blog-website/images/整型指针数组.bmp)
+![](/hexo-private-blog-website/images/字符指针数组.bmp)
+### 二维数组:
+![](/hexo-private-blog-website/images/二维数组.png)
+![](/hexo-private-blog-website/images/二维数组1.png)
+### 支付宝打赏:
+![](/hexo-private-blog-website/images/alipay.jpg)
+### 微信打赏:
+![wechat.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggvv58jjj30u010sgnq.jpg)
+### 财付通打赏：
+![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)

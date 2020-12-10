@@ -4,12 +4,28 @@ date: 2020-07-27 15:31:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-应怜屐齿印苍苔，小扣柴扉久不开。
-春色满园关不住，一枝红杏出墙来。
+	应怜屐齿印苍苔，小扣柴扉久不开。
+	春色满园关不住，一枝红杏出墙来。
 
-这是一个链接 [菜鸟教程][Runoob]
+[Linux命令手册][Linux]
+
+[Linux]: https://man.linuxde.net/
+
+[阿里云][aliyun]
+
+[aliyun]: http://www.aliyun.com
+
+[菜鸟教程][Runoob]
 
 [Runoob]: http://www.runoob.com/
+
+[百度][Baidu]
+
+[Baidu]: http://www.baidu.com
+
+[Google][Google]
+
+[Google]: http://google.com.hk
 
 # C语言基础
 一、补充
@@ -878,6 +894,11 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 		对于volatile类型的变量，系统每次用到他的时候都是直接从对应的内存当中提取，而不会利用cache当中的原有数值，以适应它的未知何时会发生的变化，系统对这种变量的处理不会做优化——显然也是因为它的数值随时都可能变化的情况。
 
 
+### 省钱利器：
+![](/hexo-private-blog-website/images/淘宝客22.jpg)
+![](/hexo-private-blog-website/images/淘宝客23.jpg)
+![](/hexo-private-blog-website/images/淘宝客24.jpg)
+
 ### NULL:
 ![](/hexo-private-blog-website/images/NULL.png)
 ![](/hexo-private-blog-website/images/NULL1.png)
@@ -893,6 +914,6 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 ### 支付宝打赏:
 ![](/hexo-private-blog-website/images/alipay.jpg)
 ### 微信打赏:
-![wechat.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggvv58jjj30u010sgnq.jpg)
+![](/hexo-private-blog-website/images/wechat.jpg)
 ### 财付通打赏：
 ![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)

@@ -5,12 +5,28 @@ date: 2020-07-25 09:53:18
 
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-看朱成碧思纷纷，憔悴支离为忆君。
-不信比来长下泪，开箱验取石榴裙。
+  看朱成碧思纷纷，憔悴支离为忆君。
+  不信比来长下泪，开箱验取石榴裙。
 
-这是一个链接 [菜鸟教程][Runoob]
+[Linux命令手册][Linux]
+
+[Linux]: https://man.linuxde.net/
+
+[阿里云][aliyun]
+
+[aliyun]: http://www.aliyun.com
+
+[菜鸟教程][Runoob]
 
 [Runoob]: http://www.runoob.com/
+
+[百度][Baidu]
+
+[Baidu]: http://www.baidu.com
+
+[Google][Google]
+
+[Google]: http://google.com.hk
 
 # 一、嵌入式技术背景
 1.1 嵌入式只专门生产功能专一的电子产品。（电子产品：所有通电的）
@@ -108,6 +124,10 @@ Linux基本操作
          机器人研发
 
 
+### 省钱利器：
+![](/hexo-private-blog-website/images/淘宝客7.jpg)
+![](/hexo-private-blog-website/images/淘宝客8.jpg)
+![](/hexo-private-blog-website/images/淘宝客9.jpg)
 
 ### 内存分布：
 ![](/hexo-private-blog-website/images/内存分布.bmp)
@@ -121,6 +141,6 @@ Linux基本操作
 ### 支付宝打赏:
 ![](/hexo-private-blog-website/images/alipay.jpg)
 ### 微信打赏:
-![wechat.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggvv58jjj30u010sgnq.jpg)
+![](/hexo-private-blog-website/images/wechat.jpg)
 ### 财付通打赏：
 ![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)

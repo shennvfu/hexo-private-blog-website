@@ -4,8 +4,8 @@ date: 2020-08-08 17:52:45
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-尚想旧情怜婢仆，也曾因梦送钱财。
-诚知此恨人人有，贫贱夫妻百事哀。
+	尚想旧情怜婢仆，也曾因梦送钱财。
+	诚知此恨人人有，贫贱夫妻百事哀。
 
 [Linux命令手册][Linux]
 
@@ -538,15 +538,82 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 
 	备案服务号可以在控制台顶部去获取：
 
+![](/hexo-private-blog-website/images/云服务器5.png)
 
+申请到备案服务号之后填写继续：
 
+![](/hexo-private-blog-website/images/云服务器5.png)
 
+	会让用户下载一个图片：网站真实性核验单
+	下载打印，填写好上传到阿里云备案系统中。
 
+	后面等待初审，初审通过之后继续下一步（初审时间一般1天即可）
 
+	拍照
 
+![](/hexo-private-blog-website/images/云服务器6.png)
 
+	上传照片
 
+	等待管局审核（到这个步骤基本是已经通过，审核周期一般是15个工作日）。
 
+	等待审核通过，就会收到工信部发送的短信与邮件通知，邮件中有备案号和备案密码（备案密码用于注销备案）。
 
+![](/hexo-private-blog-website/images/云服务器6.png)
+
+	4、域名解析
+
+	点击“解析”
+
+![](/hexo-private-blog-website/images/云服务器7.png)
+
+	解析：将域名绑定到一个服务器地址的操作
+	DNS：domain name server，用于将域名转化成ip地址的服务器。
+
+![](/hexo-private-blog-website/images/云服务器7.png)
+
+	点击右上角的添加记录：
+
+![](/hexo-private-blog-website/images/云服务器8.png)
+
+	选择记录：
+
+![](/hexo-private-blog-website/images/云服务器9.png)
+
+	例如：需要将www.linux123.xyz解析到之前购买的云主机上，则解析可以设置如下：
+
+![](/hexo-private-blog-website/images/云服务器10.png)
+
+	解析之后可以通过在线ping命令检测效果：
+
+![](/hexo-private-blog-website/images/云服务器11.png)
+
+	5、配置生产环境（最后1天）
+
+	6、上传代码
+	此时需要使用上传工具：pscp，filezilla。
+
+	和之前使用的方式一样。
+
+## 省钱利器：
+![](/hexo-private-blog-website/images/淘宝客18.jpg)
+![](/hexo-private-blog-website/images/淘宝客19.jpg)
+![](/hexo-private-blog-website/images/淘宝客20.jpg)
+
+### 内存分布：
+![](/hexo-private-blog-website/images/内存分布.bmp)
+![](/hexo-private-blog-website/images/内存分布.png)
+### 指针数组:
+![](/hexo-private-blog-website/images/整型指针数组.bmp)
+![](/hexo-private-blog-website/images/字符指针数组.bmp)
+### 二维数组:
+![](/hexo-private-blog-website/images/二维数组.png)
+![](/hexo-private-blog-website/images/二维数组1.png)
+### 支付宝打赏:
+![](/hexo-private-blog-website/images/alipay.jpg)
+### 微信打赏:
+![](/hexo-private-blog-website/images/wechat.jpg)
+### 财付通打赏：
+![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)
 
 

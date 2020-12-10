@@ -4,12 +4,28 @@ date: 2020-07-27 14:32:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-望门投止思张俭，忍死须臾待杜根。
-我自横刀向天笑，去留肝胆两昆仑。
+	望门投止思张俭，忍死须臾待杜根。
+	我自横刀向天笑，去留肝胆两昆仑。
 
-这是一个链接 [菜鸟教程][Runoob]
+[Linux命令手册][Linux]
+
+[Linux]: https://man.linuxde.net/
+
+[阿里云][aliyun]
+
+[aliyun]: http://www.aliyun.com
+
+[菜鸟教程][Runoob]
 
 [Runoob]: http://www.runoob.com/
+
+[百度][Baidu]
+
+[Baidu]: http://www.baidu.com
+
+[Google][Google]
+
+[Google]: http://google.com.hk
 
 # C语言基础
 一、函数
@@ -851,6 +867,12 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 		}
 
 
+
+### 省钱利器：
+![](/hexo-private-blog-website/images/淘宝客15.jpg)
+![](/hexo-private-blog-website/images/淘宝客16.jpg)
+![](/hexo-private-blog-website/images/淘宝客17.jpg)
+
 ### 内存分布：
 ![](/hexo-private-blog-website/images/内存分布.bmp)
 ![](/hexo-private-blog-website/images/内存分布.png)
@@ -863,6 +885,6 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 ### 支付宝打赏:
 ![](/hexo-private-blog-website/images/alipay.jpg)
 ### 微信打赏:
-![wechat.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggvv58jjj30u010sgnq.jpg)
+![](/hexo-private-blog-website/images/wechat.jpg)
 ### 财付通打赏：
 ![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)

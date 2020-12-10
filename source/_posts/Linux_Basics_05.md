@@ -4,18 +4,26 @@ date: 2020-08-05 14:15:18
 ---
 Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-万壑有声含晚籁，数峰无语立斜阳。
-棠梨叶落胭脂色，荞麦花开白雪香。
+	万壑有声含晚籁，数峰无语立斜阳。
+	棠梨叶落胭脂色，荞麦花开白雪香。
 
-这是一个链接 [菜鸟教程][Runoob]
+[Linux命令手册][Linux]
+
+[Linux]: https://man.linuxde.net/
+
+[阿里云][aliyun]
+
+[aliyun]: http://www.aliyun.com
+
+[菜鸟教程][Runoob]
 
 [Runoob]: http://www.runoob.com/
 
-百度 [百度][Baidu]
+[百度][Baidu]
 
 [Baidu]: http://www.baidu.com
 
-谷歌 [Google][Google]
+[Google][Google]
 
 [Google]: http://google.com.hk
 
@@ -42,9 +50,9 @@ Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [docume
 ② gcc xxx.o -o xxx
 
 例子：
-	hello.c  --》 helle.o
-							  main
-	world.c  --》 world.o
+	hello.c  ---> helle.o
+
+	world.c  ---> world.o
 	
 ```
 
@@ -1495,6 +1503,12 @@ clean:
 
 	　　综上所述，当我们要置一个指针为空时，应该用NULL，当我们要给一个字符串添加结束标志时，应该用‘\0’。
 
+
+## 省钱利器：
+![](/hexo-private-blog-website/images/淘宝客11.jpg)
+![](/hexo-private-blog-website/images/淘宝客12.jpg)
+![](/hexo-private-blog-website/images/淘宝客13.jpg)
+
 ### 内存分布：
 ![](/hexo-private-blog-website/images/内存分布.bmp)
 ![](/hexo-private-blog-website/images/内存分布.png)
@@ -1507,6 +1521,6 @@ clean:
 ### 支付宝打赏:
 ![](/hexo-private-blog-website/images/alipay.jpg)
 ### 微信打赏:
-![wechat.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggvv58jjj30u010sgnq.jpg)
+![](/hexo-private-blog-website/images/wechat.jpg)
 ### 财付通打赏：
 ![qq.jpg](http://ww1.sinaimg.cn/large/006DnxC4gy1gfggwd0rvjj32ai2lxdrm.jpg)
