@@ -102,6 +102,5 @@ theme: diaspora
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://github.com/shennvfu.github.io
-  branch: gh-pages
+  type:
+  repo:
